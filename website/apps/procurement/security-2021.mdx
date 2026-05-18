@@ -1,0 +1,32 @@
+---
+title: "Security Release Notes – December 2021"
+description: "Critical vulnerability patch for Raley Purchase Orders – CVE-2021-44228 (log4Shell)."
+---
+
+## Summary
+
+On December 13, 2021, Atlassian security testing identified a critical vulnerability in the Raley Purchase Orders AppServer related to **CVE-2021-44228** (log4j Remote Code Execution, also known as Log4Shell).
+
+The patch was developed and deployed to production **the same day**.
+
+## Details
+
+- **Vulnerability:** CVE-2021-44228 — log4j RCE
+- **Severity:** Critical
+- **Discovered:** December 13, 2021 (via Atlassian security testing)
+- **Patched:** December 13, 2021
+
+A specially crafted HTTP request could have exploited the log4j vulnerability on the Raley Purchase Orders AppServer.
+
+## Impact Assessment
+
+Based on investigation of production access logs, no malicious HTTP requests of this type were detected prior to the patch. The risk of exploitation before patching is considered very unlikely.
+
+## Action Required
+
+**No action is required from customers.** The fix was applied automatically on the server side.
+
+## Questions?
+
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)

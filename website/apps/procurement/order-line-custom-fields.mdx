@@ -1,0 +1,39 @@
+---
+title: "Order Line Custom Fields"
+description: "Add up to 5 custom fields to purchase order lines for additional context."
+---
+
+## Overview
+
+You can add up to **5 custom fields** to each purchase order line to capture additional information about the goods or services being ordered — such as GL numbers, part numbers, or reference URLs.
+
+## Configuration Options
+
+Each custom field supports:
+
+- **Field name** — the label shown to users
+- **Field type** — the type of data input (text, number, dropdown, etc.)
+- **Required** — mark a field as mandatory before an order line can be saved
+- **Show in PO view** — toggle whether the field appears in the order line list view
+- **Field code** — auto-generated, used for referencing the field in PDF templates
+
+## Dropdown Fields
+
+Custom fields can be configured as dropdowns to restrict input to a predefined list of values. Options are entered in `key=value` format, one option per line.
+
+## Where Custom Field Data Appears
+
+- **PO line item view** — visible when reviewing individual order lines (can be hidden from the summary view to reduce clutter)
+- **CSV reports** — included when the "Include order line" option is selected during export
+- **PDF printouts** — accessible via the auto-generated field code in PDF templates
+
+## Example Use Cases
+
+- `GL Number` — link order lines to your general ledger
+- `Part Number` — reference internal or supplier part codes
+- `Reference URL` — attach a link to a product page or spec sheet
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

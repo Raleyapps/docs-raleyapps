@@ -1,0 +1,45 @@
+---
+title: "Security Release Notes – June 2022"
+description: "Security vulnerabilities identified and resolved in Raley Purchase Orders v1.0.12-AC."
+---
+
+## Summary
+
+In May 2022, RaleyApps enrolled in the **Bugcrowd** security testing program. During testing, two vulnerabilities were identified in Raley Purchase Orders version 1.0.11-AC. Both were resolved in **version 1.0.12-AC**, released June 30, 2022.
+
+## Vulnerabilities Fixed
+
+### 1. Unauthorized Admin Access
+
+**Issue:** A JSM customer user was able to access administrative configuration pages that should have been restricted.
+
+**Root cause:** Insufficient authorization checks on the affected page.
+
+**Fix:** Additional permission verification controls were implemented.
+
+**Customer impact:** No confirmed exploitation based on access log review.
+
+---
+
+### 2. Missing Authorization on API Endpoints
+
+**Issue:** Multiple backend REST API endpoints lacked proper authorization verification, allowing unauthorized users to potentially access, modify, or delete:
+- Company data
+- Approval tiers
+- Department-related data
+- Jira configuration settings
+
+**Root cause:** Incorrect authorization controls on the application backend.
+
+**Fix:** Applied simultaneously with vulnerability #1 in version 1.0.12-AC.
+
+**Customer impact:** No evidence of exploitation in any customer installation.
+
+## Action Required
+
+**Update to version 1.0.12-AC or later.** If you are running an older version, please update through the Atlassian Marketplace.
+
+## Questions?
+
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)

@@ -1,0 +1,59 @@
+---
+title: "API and Integrations"
+description: "Integrate Raley Purchase Orders with external systems via REST API."
+---
+
+## Overview
+
+Raley Purchase Orders provides a REST API for B2B integration with third-party systems — such as ERP platforms, accounting tools, or custom internal applications.
+
+**Base URL:** `https://po.raleyapps.com/`
+
+## Authentication
+
+All API requests require an **API Key** passed in the `Authorization` HTTP header.
+
+To get your API key:
+1. Open the Raley Apps configuration page in your Jira project
+2. Go to the **API & Integrations** tab
+3. Copy your key — or click **Regenerate** to create a new one
+
+## Available Endpoints
+
+### Suppliers
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `api/v1/external/get-suppliers` | List all configured suppliers |
+| `POST` | `api/v1/external/create-supplier` | Create a new supplier |
+| `PUT` | `api/v1/external/update-supplier` | Update an existing supplier |
+
+### Products
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `api/v1/external/find-products-by-sku?sku=SKU_VALUE` | Find a product by SKU |
+| `POST` | `api/v1/external/create-product` | Create a new product |
+| `PUT` | `api/v1/external/update-product` | Update an existing product |
+
+### Taxes
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `api/v1/external/get-taxes` | List all configured tax rates |
+
+### Purchase Orders
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `api/v1/external/order-data?issueKey=MY_ISSUE_KEY` | Get details of a specific purchase order |
+
+## Notes
+
+- Products require: SKU, unit price, supplier ID, tax rate, and active status
+- The API returns **HTTP 404** when a requested resource is not found
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

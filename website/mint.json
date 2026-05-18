@@ -1,0 +1,78 @@
+{
+  "name": "RaleyApps Docs",
+  "theme": "prism",
+  "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      { "label": "Support", "href": "mailto:support@raleyapps.com" }
+    ]
+  },
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["introduction"]
+    },
+    {
+      "group": "Raley Emails Notifications",
+      "pages": [
+        "apps/raley-emails-notifications"
+      ]
+    },
+    {
+      "group": "Raley Intake Forms",
+      "pages": [
+        "apps/raley-intake-forms",
+        "apps/intake-forms/introduction",
+        "apps/intake-forms/getting-started",
+        "apps/intake-forms/advantages-over-issue-collector",
+        "apps/intake-forms/vs-jira-cloud-forms",
+        "apps/intake-forms/cookbook",
+        "apps/intake-forms/faq"
+      ]
+    },
+    {
+      "group": "Raley Procurement and Quotation",
+      "pages": [
+        "apps/raley-procurement-and-quotation",
+        "apps/procurement/sales-quotes",
+        "apps/procurement/purchase-orders",
+        "apps/procurement/currency-management",
+        "apps/procurement/managing-suppliers-and-products",
+        "apps/procurement/tax-management",
+        "apps/procurement/importing-products-from-csv",
+        "apps/procurement/discounts",
+        "apps/procurement/order-line-custom-fields",
+        "apps/procurement/contact-person-and-address",
+        "apps/procurement/api-and-integrations",
+        "apps/procurement/security-2021",
+        "apps/procurement/security-2022"
+      ]
+    },
+    {
+      "group": "Raley Bookman",
+      "pages": [
+        "apps/raley-bookman"
+      ]
+    },
+    {
+      "group": "Raley Favorites",
+      "pages": [
+        "apps/raley-favorites"
+      ]
+    },
+    {
+      "group": "Policies",
+      "pages": [
+        "policies/service-level-agreement",
+        "policies/data-security-and-privacy"
+      ]
+    }
+  ],
+  "footer": {
+    "socials": {}
+  }
+}

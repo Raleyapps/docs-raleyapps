@@ -1,0 +1,80 @@
+---
+title: "Data Security and Privacy Statement"
+description: "How RaleyApps add-ons access, handle, and store your data."
+---
+
+This statement describes the data access, handling, and storage practices for all Raley add-ons. *Last updated: September 1, 2025.*
+
+## Hosting Infrastructure
+
+All systems run on **DigitalCloud** and **Amazon AWS** servers located in **Amsterdam** and the **USA**.
+
+- **Data retention after uninstall:** User-provided data is retained for 60 days, then permanently deleted.
+- **Third-party sharing:** Data is never shared with third parties except as required by law.
+- **Encryption:** All communications use SSL and JWT encryption.
+
+---
+
+## Per-App Data Details
+
+### Raley Emails Notifications
+
+**Permissions:** READ, WRITE, ADMIN, and email access
+
+**What it reads:**
+- Jira issues, projects, and versions
+- User data and email addresses from Jira groups and accounts
+
+**What it stores:**
+- Configuration data backed up for 30+ days
+- Does **not** persistently store Jira issue details
+
+**Gmail OAuth:** When configured for Gmail, the app requests message-sending and metadata scopes to enable email threading via Message-ID tracking.
+
+---
+
+### Raley Intake Forms
+
+**Permissions:** READ, WRITE, and ADMIN
+
+**What it does:**
+- Creates Jira issues from form submissions
+
+**What it stores:**
+- Does **not** store submitted form data
+- All iframe rendering is HTTPS-protected
+- Communications secured via SSL and JWT
+
+---
+
+### Raley Procurement and Quotation
+
+**Permissions:** Accesses workflow, project, and user information
+
+**What it stores:**
+- Workflow statuses, project keys, issue keys, and quantitative PO data
+- Does **not** store private user information
+- Configuration backed up for 30+ days
+
+---
+
+### Raley Bookman
+
+**Permissions:** Reads issue information matching configured JQL queries
+
+**What it stores:**
+- Booking-related data
+- Does **not** store private user information
+- 30+ day backup retention
+
+---
+
+## Server-Hosted Installations
+
+For server-hosted versions of Raley Notifications, all configuration is stored locally on your Jira server. No data is transmitted to external systems or third parties.
+
+---
+
+## Questions?
+
+For data or privacy questions, contact us at [support@raleyapps.com](mailto:support@raleyapps.com).

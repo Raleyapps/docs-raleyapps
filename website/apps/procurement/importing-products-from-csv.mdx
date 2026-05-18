@@ -1,0 +1,46 @@
+---
+title: "Importing Products from a CSV File"
+description: "Bulk import up to 1,000 products into Raley Purchase Orders using a CSV file."
+---
+
+## Overview
+
+Instead of adding products one by one, you can upload a CSV file to import up to **1,000 products** at once.
+
+**Required role:** Finance
+
+## How to Import
+
+1. Go to your Jira project configured for Purchase Orders
+2. Open **Project Settings** from the left panel
+3. Select **Purchase Orders – Budgets and Suppliers**
+4. Click the **Suppliers** tab
+5. Click the **Products** button next to a supplier
+6. Choose the CSV import option
+
+## CSV File Format
+
+Your file must have **exactly 3 columns** with **no header row**.
+
+| Column | Purpose | Max Length | Required |
+|---|---|---|---|
+| 1 | Product / service description | 100 characters | At least column 1 or 2 |
+| 2 | SKU identifier | 50 characters | At least column 1 or 2 |
+| 3 | Gross price in default currency | digits 0–9 and decimal point | Yes |
+
+**Accepted field separators:** comma `,` · semicolon `;` · pipe `|`
+
+## Import Process
+
+1. Upload your CSV file and select the field separator used
+2. Click **Next** to validate the records
+3. Review the parsed results — invalid rows are flagged
+4. Click **Perform Import**
+5. A confirmation shows how many products were imported successfully
+
+Only valid records are imported. Invalid rows are skipped without affecting valid ones.
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
