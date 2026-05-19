@@ -1,11 +1,45 @@
 ---
 title: "Purchase Orders"
 description: "Generate and manage purchase orders, approvals, and budgets inside Jira."
+last_reviewed: "2026-05-19"
 ---
 
 ## Overview
 
 The Purchase Orders module brings the full procurement lifecycle into Jira — from initial purchase requests through approvals, budget tracking, goods receipt, and reporting.
+
+## Creating Your First Purchase Order
+
+**Prerequisites:** Suppliers and products must be configured before creating a PO. See [Managing Suppliers and Products](/apps/procurement/managing-suppliers-and-products).
+
+**Required role:** Finance
+
+1. Open your Jira project and go to **Apps → Purchase Orders**
+2. Click **Create new purchase order**
+3. Select the **Supplier** from your configured supplier list
+4. Select the **Currency** for this order (defaults to your project default)
+5. Add **order lines** — choose a product from the supplier's catalog and enter the quantity
+6. Review the calculated totals (unit prices, tax, discounts)
+7. Click **Save** — the PO is created with status **Draft**
+
+## Submitting for Approval
+
+1. Open the saved PO and confirm all order lines are correct
+2. Click **Submit for Approval**
+3. The PO status changes to **Pending Approval** and the assigned approver is notified
+4. The approver opens the PO and clicks **Approve** or **Reject**
+5. On approval, the status advances to **Approved** and the PO is ready to action
+
+For multi-level approval configuration, go to **Project Settings → Purchase Orders → Approval Tiers**.
+
+## Recording Goods Receipt
+
+When ordered items arrive:
+
+1. Open the approved PO
+2. Click **Receive Goods**
+3. Enter the quantities received for each order line (partial receipts are supported)
+4. Click **Save** — the received quantities are recorded and the PO status updates accordingly
 
 ## What You Can Do
 

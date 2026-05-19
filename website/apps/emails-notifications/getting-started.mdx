@@ -1,0 +1,73 @@
+---
+title: "Getting Started – Raley Emails Notifications (Cloud)"
+description: "Set up your first notification rule in Raley Emails Notifications for Jira Cloud."
+last_reviewed: "2026-05-19"
+---
+
+## What You're Setting Up
+
+Raley Emails Notifications is an Atlassian Connect add-on for cloud Jira and JSM. It performs two primary functions:
+
+1. **Event-triggered notifications** — monitors issue, project, and version events, evaluates conditions, and sends automated emails or Slack messages
+2. **Periodic digest notifications** — generates scheduled reports that aggregate information about multiple Jira issues into a single email
+
+## Prerequisites
+
+- A Jira Cloud or JSM Cloud subscription
+- Jira Admin permissions to install and configure the add-on
+- Raley Emails Notifications installed from the [Atlassian Marketplace](https://marketplace.atlassian.com)
+
+## How a Notification Rule Works
+
+Every notification rule has three parts:
+
+| Part | Description |
+|---|---|
+| **Condition** | Defines when the notification fires (e.g., "High priority issue in project ABC has a public comment added") |
+| **Message Template** | Uses Velocity-style formatting to combine static text with dynamic issue/project field data |
+| **Destination** | The recipient — a static email, dynamic address from a Jira field, Slack channel, or distribution list |
+
+## Step 1 — Open the App
+
+In your Jira project, go to **Apps → Raley Emails Notifications** in the top navigation.
+
+## Step 2 — Create Your First Notification
+
+1. Click **Add new notification**
+2. Give the notification a descriptive name
+3. Set the **Event** that will trigger it (e.g., Issue Commented, Workflow Transition)
+4. Add a **Condition** if you want to filter which issues it applies to (optional)
+5. Build your **Message Template** — you can start from a predefined template or write your own
+6. Set the **Destination** — enter an email address, select a Jira field that contains an email, or configure a Slack channel
+7. Click **Save**
+
+## Step 3 — Test It
+
+Use the **Preview** button to simulate the notification against a specific Jira issue key and confirm the output looks correct before it goes live.
+
+Use the **Test Send** button to send an actual test email to yourself.
+
+## Step 4 — Monitor Delivery
+
+After your notification is live, check the **Send Audit** tab to see sent notifications and any delivery errors. See [Monitoring](/apps/emails-notifications/monitoring) for details on setting up admin delivery alerts.
+
+## Digest Notifications
+
+Instead of one email per event, digest notifications collect changes across multiple issues over a time period and send them as a single summary email. This is useful for:
+- Daily summaries of commented issues
+- Weekly high-priority issue reports grouped by assignee
+- Alerts for issues with no activity in N days
+
+To set up a digest, follow the same steps but choose a **Scheduled / Digest** event type and configure the time interval and JQL filter.
+
+## Next Steps
+
+- [Features](/apps/emails-notifications/features) — full list of capabilities
+- [Tutorials](/apps/emails-notifications/tutorials) — step-by-step lesson series
+- [Templating](/apps/emails-notifications/templating) — how to use Velocity templates and field variables
+- [Cookbook](/apps/emails-notifications/cookbook) — ready-made solutions for common scenarios
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

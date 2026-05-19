@@ -1,0 +1,84 @@
+---
+title: "Configuration – Raley Bookman"
+description: "Set up Raley Bookman: configure asset sources, request types, booking rules, and JSM portal integration."
+last_reviewed: "2026-05-19"
+---
+
+## Prerequisites
+
+- **Jira Service Management Cloud** (required)
+- **Jira Cloud** (for Jira work items as assets) OR **JSM Premium/Enterprise** (for JSM Assets)
+- Jira Admin or JSM Admin permissions to configure the app
+
+## Accessing Configuration
+
+Go to **Apps → Raley Bookman** in your Jira top navigation to open the configuration console.
+
+## Step 1 — Choose Your Asset Source
+
+Decide whether your bookable assets are represented as **Jira work items** or **JSM Assets**.
+
+### Option A: Jira Work Items
+
+Any Jira issue can serve as a bookable asset (e.g., meeting rooms, company cars, appointment slots). Each issue represents one bookable resource.
+
+1. Create (or identify) a Jira project and issue type that represents your assets
+2. Create one issue per bookable item (e.g., one issue per meeting room)
+3. Build a **JQL expression** that returns only your bookable assets. Example:
+   ```
+   project = Facilities AND issuetype = "Meeting Room"
+   ```
+
+### Option B: JSM Assets
+
+1. Open **Assets** in Jira
+2. Select the relevant **Schema**
+3. Click **Filter → Advanced AQL** to build an AQL expression that returns your bookable objects
+4. Copy the AQL expression for use in the next step
+
+## Step 2 — Map Request Types to Assets
+
+In the Raley Bookman configuration console:
+
+1. Select a **JSM Service Desk** and **Request Type** that customers will use to make bookings
+2. Map that request type to either a **JQL expression** (for Jira work items) or an **AQL expression** (for JSM Assets)
+3. Save
+
+Repeat for each category of bookable asset. Each request type maps to a different asset query.
+
+## Step 3 — Configure Booking Rules
+
+In the configuration for each request type, you can set:
+
+### Booking Durations (optional)
+Define a list of allowed booking lengths (e.g., 30 minutes, 1 hour, 2 hours). When configured, users select a duration and the "Booking to" time is calculated automatically.
+
+### Booking Schedule / CRON (optional)
+Use a CRON expression to restrict which start times are valid. Examples:
+- `0 9-17 * * 1-5` — hourly slots, 9am–5pm, weekdays only
+- `0,30 9-17 * * 1-5` — every 30 minutes during business hours
+
+When both **Booking Durations** and **CRON** are configured, valid bookings must satisfy both rules.
+
+### No Constraints
+If neither Booking Durations nor CRON are configured, customers can select any start and end time.
+
+## Step 4 — Configure JSM Assets API Access (if using JSM Assets)
+
+If you're using JSM Assets objects:
+
+1. Go to **Apps → Raley Bookman → Settings**
+2. Enter an **Atlassian API token** and the associated user email address
+3. Save — this grants Bookman read access to your Assets schema
+
+## Step 5 — Test the Booking Flow
+
+1. Open your JSM customer portal
+2. Submit a test booking request using the configured request type
+3. Confirm the asset selection, date picker, and availability check work correctly
+4. Check that the created JSM ticket shows the booking details
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

@@ -1,0 +1,90 @@
+---
+title: "Troubleshooting – Raley Emails Notifications (Cloud)"
+description: "Diagnose and fix common delivery and configuration issues in Raley Emails Notifications."
+last_reviewed: "2026-05-19"
+---
+
+## Haven't Received a Notification?
+
+Work through these steps in order before contacting support:
+
+**Step 1 — Check the Send Audit**
+
+Go to **Apps → Raley Emails Notifications → Send Audit** tab. Search by issue key and notification name. If the notification appears with **Status = Error**, the error description will tell you the cause.
+
+**Step 2 — Preview the Notification**
+
+Open the notification configuration and click **Preview**. Enter a specific issue key. This shows you exactly what the notification would send for that issue — including recipient list and rendered message. If the preview is empty, check your conditions.
+
+**Step 3 — Test Send**
+
+Click **Test Send** and enter your own email address. If you receive it, the configuration is correct and the issue may be with your Jira event setup or conditions.
+
+**Step 4 — Check Your Email Server Settings**
+
+- If using **Raley's shared mail server**: no configuration needed — check your spam folder
+- If using your **own SMTP server**: go to Settings → Email Server and click **Send test message** to verify the connection
+- If using **Gmail or Office 365 SMTP**: switch to **OAuth2 authentication** — legacy password SMTP is being phased out by these providers
+
+**Step 5 — Contact Support**
+
+If none of the above resolves the issue, contact support with:
+- Your Jira Cloud URL
+- The notification name
+- An affected issue key
+- The approximate date and time the notification should have fired
+
+---
+
+## Custom SMTP Server Issues
+
+**Gmail or Office 365 users:** Switch to OAuth2 authentication. Go to **Settings → Email Server** and select **Gmail OAuth2** or **Office 365 OAuth2** instead of the legacy password option.
+
+**Other SMTP providers:** Use the **Send test message** button on the email server settings page to confirm the connection is working. Common failure reasons: wrong port, TLS/SSL mismatch, or incorrect credentials.
+
+---
+
+## Notifications Not Triggering on Status Changes
+
+**Cause 1: Missing post-function in workflow**
+
+Raley listens for Jira workflow events. If your workflow transition doesn't fire the right event (e.g., `Issue Updated` or the specific transition event), Raley won't trigger.
+
+**Fix:** In Jira, go to **Project Settings → Workflows**, find the transition, and confirm it has a **Fire a generic event** post-function configured to fire the event Raley is listening for.
+
+**Cause 2: JSM request type not assigned**
+
+For JSM projects, if the issue doesn't have a **Request Type** assigned, JSM-specific events may not fire correctly.
+
+**Fix:** Open the issue and confirm it has a Request Type. If it's an agent-created issue without a customer request type, configure the notification to use standard Jira events instead of JSM-specific ones.
+
+---
+
+## Notification Fires but Wrong Recipients Receive It
+
+**Check your destination configuration.** Open the notification and confirm:
+- If using a dynamic recipient (e.g., a custom field), verify the field contains a valid email address on the test issue
+- If using Assignee/Reporter, verify the user's Jira account has a confirmed email address
+- If using an external email, confirm it's entered correctly without extra spaces
+
+---
+
+## Template Rendering Errors
+
+Errors in Velocity template syntax cause the notification to fail. Check the Send Audit for messages like "Template evaluation error."
+
+Common causes:
+- Missing `#end` for every `#if` or `#foreach`
+- Referencing a field that doesn't exist on the issue type (e.g., `$issue.fields.customfield_XXXXX`)
+- Unclosed string literals or mismatched brackets
+
+Use **Preview** with a real issue key to catch rendering errors before the notification goes live.
+
+---
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+
+When contacting support, include: your Jira Cloud URL, notification name, an affected issue key, and the approximate date/time the notification failed.

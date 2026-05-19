@@ -1,11 +1,34 @@
 ---
 title: "Raley Procurement and Quotation"
 description: "Manage purchase orders and sales quotes directly inside Jira and JSM."
+last_reviewed: "2026-05-19"
 ---
 
 ## Overview
 
 Raley Procurement and Quotation brings full procurement and quoting workflows into Jira and JSM — so your team can generate POs, manage suppliers, and track approvals without switching tools.
+
+## How It Works
+
+The app runs as an Atlassian Connect cloud add-on, which means it connects to your Jira instance through Atlassian's official app framework — no direct database access, no server-side code running inside your Jira.
+
+```
+Your team in Jira
+       ↓
+Raley Procurement app (Atlassian Connect)
+       ↓
+Raley AppServer (DigitalCloud + AWS, Amsterdam / USA)
+       ↓
+Jira REST API  ←→  Your Jira project data
+```
+
+**What this means in practice:**
+- PO and quote data is stored on Raley's servers (DigitalCloud / AWS) — not inside Jira itself
+- All communication between the app and Jira uses SSL and JWT token authentication
+- Jira user permissions are checked for every action — the app cannot bypass your Jira project roles
+- Data is retained for 60 days after uninstall, then permanently deleted
+
+For the full data and privacy breakdown, see [Data Security and Privacy](/policies/data-security-and-privacy).
 
 ## Main Sections
 

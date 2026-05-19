@@ -1,0 +1,103 @@
+---
+title: "Tutorials – Raley Emails Notifications"
+description: "Step-by-step lessons for setting up common notification types in Raley Emails Notifications."
+last_reviewed: "2026-05-19"
+---
+
+## Overview
+
+These tutorials walk you through setting up the most common notification types from scratch. Complete them in order if you're new to Raley Emails Notifications.
+
+---
+
+## Lesson 1 — Your Very First Notification: On Status Change
+
+Set up a notification that fires when a Jira issue moves to a specific workflow status.
+
+**What you'll build:** An email that notifies the assignee when an issue transitions to "In Review."
+
+**Steps:**
+1. Go to **Apps → Raley Emails Notifications** in your Jira project
+2. Click **Add new notification**
+3. Name it: `Notify assignee on In Review transition`
+4. Set **Event** to: **Issue Workflow Transition**
+5. Set the **Status (to)** filter to: `In Review`
+6. In the **Message Template**, use a basic template or the Template Wizard to add the issue summary and a link
+7. Set **Destination** to: `Assignee`
+8. Click **Save** and test with **Preview** using a relevant issue key
+
+---
+
+## Lesson 2 — Notifying a Customer When a Comment Is Added
+
+Send an email to the customer whenever a public comment is added to their JSM service request.
+
+**What you'll build:** A customer-facing notification triggered by a public JSM comment.
+
+**Steps:**
+1. Create a new notification
+2. Name it: `Customer comment notification`
+3. Set **Event** to: **Issue Commented**
+4. Add a **Condition**: Comment visibility = Public (to exclude internal notes)
+5. Build a template that includes: the issue summary, the comment text, and a link to the portal request
+6. Set **Destination** to: **Reporter** (the customer who raised the request)
+7. Save and test
+
+**Tip:** Use `#if ($comment.visibility == "public")` in your template if you want to conditionally include the comment only when it's public.
+
+---
+
+## Lesson 3 — Digest Notification
+
+Send a daily summary email instead of individual notifications for every change.
+
+**What you'll build:** A daily digest of all high-priority issues updated in the last 24 hours.
+
+**Steps:**
+1. Create a new notification
+2. Name it: `Daily high-priority digest`
+3. Set **Event** to: **Scheduled / Digest**
+4. Set the **Schedule** to run daily (e.g., every day at 8:00 AM using a CRON expression: `0 8 * * *`)
+5. Set a **JQL Filter** to scope which issues are included: `priority = High AND updated >= -24h`
+6. Build the template using `#foreach` to iterate over matching issues and display their key, summary, status, and assignee
+7. Set **Destination** to the team email address or distribution list
+8. Save and test
+
+**Note:** The minimum schedule interval is 1 hour. Sub-hourly digests are not supported.
+
+---
+
+## Lesson 4 — Digest Notification with Fields and Comments Change Log
+
+Build a more advanced digest that shows what changed on each issue, including field changes and new comments.
+
+**What you'll build:** A weekly digest of sprint issues showing each issue's activity summary — fields changed, comments added — since the last digest.
+
+**Steps:**
+1. Create a new notification
+2. Name it: `Weekly sprint activity digest`
+3. Set **Event** to: **Scheduled / Digest**
+4. Set **Schedule** to weekly (e.g., every Monday at 9:00 AM)
+5. Set a **JQL Filter** targeting the current sprint: `sprint in openSprints()`
+6. In the template, use the change log variables to show:
+   - Issues where fields changed since the last run
+   - Comments added since the last run
+   - Current status, assignee, and priority
+7. Use `#foreach` to loop through the issue list and `#if` to only show issues that had activity
+8. Set **Destination** to the team lead or project manager
+9. Save and test with a preview run
+
+---
+
+## Next Steps
+
+After completing these tutorials:
+
+- [Templating](/apps/emails-notifications/templating) — full reference for template variables and Velocity syntax
+- [Cookbook](/apps/emails-notifications/cookbook) — solutions to 40+ specific notification scenarios
+- [Troubleshooting](/apps/emails-notifications/troubleshooting) — if notifications aren't arriving as expected
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

@@ -1,0 +1,107 @@
+---
+title: "Features – Raley Emails Notifications (Cloud)"
+description: "Complete list of features available in Raley Emails Notifications for Jira Cloud."
+last_reviewed: "2026-05-19"
+---
+
+## Event Monitoring
+
+Raley listens to a comprehensive set of Jira and JSM events:
+
+**Issue events:** Created, Updated, Assigned, Unassigned, Workflow Transition, Comment Added, Comment Deleted, Resolved, Closed, Reopened, Deleted
+
+**Project events:** Created, Updated, Deleted
+
+**Version events:** Created, Updated, Released, Unreleased, Merged, Deleted
+
+**JSM-specific:** Internal vs. external comment distinction, customer request events
+
+## Notification Types
+
+### Event-Triggered Notifications
+Fires immediately when a defined event occurs and the configured conditions are met.
+
+### Digest Notifications
+Collects changes to a group of issues over a defined time period and sends them as a single summary email. Useful for:
+- Issues commented during a specified period
+- High-priority issues approaching deadlines, grouped by assignee
+- Issues with no activity for N days
+
+Digests run on a schedule — the minimum interval is **1 hour** (sub-hourly scheduling is not supported).
+
+### Canned Notifications
+Pre-built templates available directly from the Jira issue view, allowing any authorized user to trigger a notification on demand without admin configuration.
+
+## Recipients
+
+Notifications can be sent to any combination of:
+
+| Recipient Type | Description |
+|---|---|
+| Reporter | The user who created the issue |
+| Assignee | The currently assigned user |
+| Watchers | All users watching the issue |
+| Mentioned users | Users @mentioned in the issue |
+| Group members | All members of a specified Jira group |
+| Project role | All users in a project role |
+| Component leads | Lead of the issue's component |
+| Service Desk participants | Customers and participants on JSM requests |
+| Organizations | JSM organization members |
+| External email | Any static email address or distribution list |
+| Dynamic (template) | Any email address resolved from a Jira field or Velocity expression |
+
+All destination types support **To**, **CC**, and **BCC** fields.
+
+## Email Customization
+
+- Full HTML control for message body and styling
+- Inline image support (embed images within the email body)
+- Issue attachment delivery — attach Jira issue files to outgoing emails
+- Issue PDF snapshot — attach a PDF export of the Jira issue
+- Company logo and branding
+- Dynamic **From** name and address per notification
+- Custom email headers
+
+## Template Engine
+
+Uses a **Velocity-based template language** to insert dynamic content:
+- Any standard Jira field
+- Custom fields
+- Asset fields (JSM Assets)
+- Conditional logic (`#if`, `#foreach`, etc.)
+- Date formatting helpers
+- Linked issue data
+
+See [Templating](/apps/emails-notifications/templating) for the full reference.
+
+## JSM-Specific Features
+
+- **Approve / Decline buttons** — embed one-click approval links in JSM service request notification emails
+- Customer and participant notifications
+- Internal vs. external comment routing
+- Request type filtering
+
+## Sending Options
+
+| Method | Description |
+|---|---|
+| Raley shared mail server | No configuration needed — send immediately |
+| Custom SMTP server | Use your own domain; supports OAuth2 (Gmail, Office 365) and legacy password auth |
+| Gmail OAuth | Enables email threading via Message-ID tracking |
+
+## Audit and Monitoring
+
+- **Send Audit tab** — log of all sent notifications with status, recipient, and error details
+- **Audit comment** — optional: stores a copy of each sent notification as a private comment on the Jira issue
+- **Admin delivery alerts** — hourly digest emails sent to configured admins when delivery failures occur
+
+See [Monitoring](/apps/emails-notifications/monitoring) for setup details.
+
+## Access Control
+
+By default, only users with **ADMINISTER** or **JIRA_ADMIN** permissions can configure notification rules. Additional Jira user groups can be granted access through the app's Settings. The Raley issue panel (for canned / instant notifications) is available to any Jira user with access to the issue.
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

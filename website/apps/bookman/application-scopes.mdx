@@ -1,0 +1,38 @@
+---
+title: "Application Scopes – Raley Bookman"
+description: "Atlassian Connect permission scopes required by Raley Bookman and what they are used for."
+last_reviewed: "2026-05-19"
+---
+
+## Overview
+
+Raley Bookman is an Atlassian Connect cloud add-on. It declares its required permission scopes in the `atlassian-connect.json` descriptor. These scopes define exactly what data the app can access in your Jira and JSM instance.
+
+## Required Scopes
+
+| Scope | Purpose |
+|---|---|
+| **READ** | Read JSM Request Types, Jira fields, Jira issue fields (key, summary, reporter), and query the JSM Assets workspace ID |
+| **WRITE** | Store app-specific booking attributes to Jira issues and JSM requests to track reservation state |
+| **DELETE** | Allow customers to delete their own booking requests from the JSM portal |
+
+## What the Scopes Do NOT Allow
+
+- The app cannot read or write data outside the scope of issues it has been explicitly configured to access
+- The app cannot access issues in projects that are not part of the configured JQL/AQL filter
+- The DELETE scope applies only to the booking properties the app itself created — it cannot delete Jira issues or customer accounts
+
+## Data Stored
+
+Using the WRITE scope, Raley Bookman stores the following data as properties on Jira issues/JSM requests:
+
+- Booking start and end dates/times
+- The asset being booked (issue key or Assets object reference)
+- The booking status
+
+No private user information (names, emails, user data) is stored by the app. See [Data Security and Privacy](/policies/data-security-and-privacy) for full details.
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

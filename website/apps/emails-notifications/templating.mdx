@@ -1,0 +1,138 @@
+---
+title: "Templating – Raley Emails Notifications"
+description: "Use Velocity templates to create dynamic email content with Jira field data, conditionals, and helpers."
+last_reviewed: "2026-05-19"
+---
+
+## Overview
+
+Raley Emails Notifications uses a **Velocity-based template language** to generate dynamic message content. Templates combine static HTML or text with Velocity expressions that are evaluated at send time against the triggering Jira issue.
+
+> **Cloud note:** Not all HTML tags are supported in cloud templates. Certain tags are stripped for XSS security. Test your template using the **Preview** button before going live.
+
+## Context Variables
+
+These variables are available in every template:
+
+| Variable | Description |
+|---|---|
+| `$issue` | The triggering Jira issue object |
+| `$issue.key` | Issue key (e.g., `ABC-123`) |
+| `$issue.fields.summary` | Issue summary |
+| `$issue.fields.status.name` | Current status name |
+| `$issue.fields.assignee.displayName` | Assignee display name |
+| `$issue.fields.assignee.emailAddress` | Assignee email |
+| `$issue.fields.reporter.displayName` | Reporter display name |
+| `$issue.fields.priority.name` | Priority name |
+| `$issue.fields.issuetype.name` | Issue type name |
+| `$issue.fields.description` | Issue description |
+| `$issue.fields.created` | Created date (raw) |
+| `$issue.fields.updated` | Last updated date (raw) |
+| `$issue.fields.customfield_XXXXX` | Any custom field by its Jira field ID |
+| `$comment` | The triggering comment (available on comment events) |
+| `$comment.body` | Comment body text |
+| `$project` | The Jira project object |
+| `$jirassimo` | Helper object with utility functions |
+
+## Hello World
+
+The simplest possible template:
+
+```html
+<p>Issue <strong>$issue.key</strong> - $issue.fields.summary has been updated.</p>
+<p>Current status: $issue.fields.status.name</p>
+<p><a href="$issueUrl">View issue</a></p>
+```
+
+## Displaying Fields
+
+Standard fields:
+
+```html
+<p>Summary: $issue.fields.summary</p>
+<p>Assignee: $issue.fields.assignee.displayName</p>
+<p>Priority: $issue.fields.priority.name</p>
+```
+
+Custom fields (replace `10001` with your field's actual ID):
+
+```html
+<p>Department: $issue.fields.customfield_10001</p>
+```
+
+## Using Conditionals
+
+Show content only when a condition is true:
+
+```html
+#if ($issue.fields.priority.name == "High")
+  <p style="color:red;">⚠ This is a high priority issue.</p>
+#end
+```
+
+Conditional with else:
+
+```html
+#if ($issue.fields.assignee)
+  <p>Assigned to: $issue.fields.assignee.displayName</p>
+#else
+  <p>This issue is currently unassigned.</p>
+#end
+```
+
+## Iterating with #foreach
+
+Loop over a list (e.g., issue links, components, or digest issue sets):
+
+```html
+#foreach ($component in $issue.fields.components)
+  <li>$component.name</li>
+#end
+```
+
+## Using Helpers
+
+**Format a date:**
+
+```
+$jirassimo.formatDate($issue.fields.created, "dd MMM yyyy HH:mm")
+```
+
+**Look up a setting value** (e.g., map a user email to a Slack channel):
+
+```
+$jirassimo.settingValue($issue.fields.customfield_10000)
+```
+
+## Predefined Templates
+
+The app includes ready-made templates for common use cases accessible from the **Template Wizard** inside the notification editor. Use these as a starting point rather than building from scratch.
+
+Available predefined templates include:
+- Basic issue notification
+- Customer request update (JSM)
+- Approval required (JSM)
+- Comment notification
+- Status change notification
+- Digest summary
+
+## Examples of Version and Project Data
+
+Access project-level data:
+
+```html
+<p>Project: $project.name ($project.key)</p>
+```
+
+Access version data (for version-triggered notifications):
+
+```html
+#if ($version)
+  <p>Version: $version.name — Released: $version.released</p>
+#end
+```
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

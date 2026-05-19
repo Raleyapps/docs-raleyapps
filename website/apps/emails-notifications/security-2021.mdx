@@ -1,0 +1,55 @@
+---
+title: "Security Release Notes – May 2021"
+description: "Critical vulnerabilities identified and resolved in Raley Emails Notifications – May 2021."
+last_reviewed: "2026-05-19"
+---
+
+## Summary
+
+In May 2021, two critical vulnerabilities were identified in Raley Emails Notifications through the **Bugcrowd** security testing program. Both were patched and deployed on the same day they were discovered.
+
+---
+
+## Vulnerabilities Fixed
+
+### 1. Local File Read via Velocity Template
+
+**Severity:** Critical
+
+**Issue:** Specific Velocity template statements could be used to read local files from the Raley AppServer.
+
+**Discovered:** May 4, 2021 (reported by a Bugcrowd security researcher)
+
+**Patched:** May 4, 2021 — deployed to production same day
+
+**Customer impact:** It is very unlikely that this vulnerability was exploited. No evidence of malicious use was found in access log review.
+
+**Action required:** None. No action is needed from customers.
+
+---
+
+### 2. Anonymous User Admin Access
+
+**Severity:** Critical
+
+**Affected setup:** Jira Service Management instances with public help center access enabled
+
+**Issue:** An anonymous JSM user (with no Jira account) could access the Raley Emails Notifications administration console without needing ADMINISTER or SYSTEM_ADMIN permissions.
+
+**Discovered:** May 6, 2021 (reported by a Bugcrowd security researcher)
+
+**Patched:** May 6, 2021 — deployed to production same day
+
+**Customer impact:** We cannot confirm that real-world exploitation occurred. Access logs were reviewed and no confirmed unauthorized administrative actions were found.
+
+**Action required:**
+- No software update is required — the fix was applied automatically on the server side
+- As a precaution, **audit your existing Raley Notifications configurations** for any entries you do not recognize
+- If you find unfamiliar notification configurations, delete them and contact support
+
+---
+
+## Questions?
+
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)

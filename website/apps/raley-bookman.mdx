@@ -1,37 +1,39 @@
 ---
 title: "Raley Bookman"
 description: "Asset booking management inside the Jira Service Management portal."
+last_reviewed: "2026-05-19"
 ---
 
 ## Overview
 
 Raley Bookman lets you display a specific subset of assets — represented by Jira tickets or JSM Assets — for bookings directly in the JSM customer portal. It gives your service desk team a simple, structured way to manage asset reservations without building custom solutions.
 
-## Key Sections
+## Documentation
 
-### Application Scopes
-Define which assets are available for booking and who can book them. Scopes let you control access per project or team.
-
-### Asset Bookings Monitoring
-View and manage all active and upcoming bookings from a central dashboard. Track availability and resolve conflicts before they happen.
-
-### Bookman Configuration
-Set up your asset catalog, booking rules, and availability windows. Configuration is done inside Jira project settings — no coding required.
-
-### Making Bookings
-End users submit booking requests through the JSM customer portal. Bookman handles availability checks and confirmation automatically.
-
-### Features
-- JQL-based asset filtering to show only relevant items
-- Booking data stored securely (no private user data retained)
-- 30+ day data backup retention
+<CardGroup cols={2}>
+  <Card title="Features" icon="list-check" href="/apps/bookman/features">
+    Full list of capabilities — asset types, scheduling, conflict prevention, and views.
+  </Card>
+  <Card title="Configuration" icon="gear" href="/apps/bookman/configuration">
+    Step-by-step setup: asset source, request types, booking rules, and CRON schedules.
+  </Card>
+  <Card title="Making Bookings" icon="calendar-plus" href="/apps/bookman/making-bookings">
+    How customers submit booking requests through the JSM customer portal.
+  </Card>
+  <Card title="Asset Bookings Monitoring" icon="chart-line" href="/apps/bookman/asset-bookings-monitoring">
+    View existing reservations for any asset directly from the Jira issue screen.
+  </Card>
+  <Card title="Application Scopes" icon="shield-halved" href="/apps/bookman/application-scopes">
+    Atlassian Connect permission scopes and what data the app can access.
+  </Card>
+</CardGroup>
 
 ## Getting Started
 
 1. Install Raley Bookman from the [Atlassian Marketplace](https://marketplace.atlassian.com)
-2. Configure your application scope and asset catalog
-3. Set your booking rules and availability windows
-4. Enable the booking widget in your JSM customer portal
+2. Follow the [Configuration guide](/apps/bookman/configuration) to set up your asset catalog and booking rules
+3. Test the booking flow in your JSM customer portal
+4. Share the portal link with your customers or employees
 
 ## Support
 

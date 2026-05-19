@@ -1,58 +1,63 @@
 ---
 title: "Data Security and Privacy Statement"
 description: "How RaleyApps add-ons access, handle, and store your data."
+last_reviewed: "2026-05-19"
 ---
 
-This statement describes the data access, handling, and storage practices for all Raley add-ons. *Last updated: September 1, 2025.*
+This statement describes the data access, handling, and storage practices for all Raley add-ons. *Effective: November 4, 2022.*
 
 ## Hosting Infrastructure
 
-All systems run on **DigitalCloud** and **Amazon AWS** servers located in **Amsterdam** and the **USA**.
+All cloud-hosted systems run on **DigitalOcean** and **Amazon AWS** servers located in **Amsterdam** and the **USA**. Server access is limited to the RaleyApps support team.
 
-- **Data retention after uninstall:** User-provided data is retained for 60 days, then permanently deleted.
+- **Data retention after uninstall:** User-provided data is retained for up to 60 days, then permanently deleted.
 - **Third-party sharing:** Data is never shared with third parties except as required by law.
-- **Encryption:** All communications use SSL and JWT encryption.
+- **Encryption:** All communications between the app and Jira use SSL and JWT encryption.
+- **Google API compliance:** The apps comply with the Google API Services User Data Policy.
 
 ---
 
-## Per-App Data Details
+## Cloud-Hosted Apps
 
 ### Raley Emails Notifications
 
-**Permissions:** READ, WRITE, ADMIN, and email access
+**Permissions:** READ, WRITE, ADMIN, ACCESS_EMAIL_ADDRESSES
 
 **What it reads:**
 - Jira issues, projects, and versions
 - User data and email addresses from Jira groups and accounts
 
 **What it stores:**
-- Configuration data backed up for 30+ days
-- Does **not** persistently store Jira issue details
+- Configuration data (including SMTP, Slack, or HipChat credentials if configured) — backed up for 30+ days
+- When audit is enabled: writes a copy of sent notifications as private issue comments
+- Does **not** persistently store the details of your Jira issues, projects, or versions
 
-**Gmail OAuth:** When configured for Gmail, the app requests message-sending and metadata scopes to enable email threading via Message-ID tracking.
+**Gmail OAuth:** When configured for Gmail, the app stores Message-ID headers and user name/email to enable email threading.
 
 ---
 
 ### Raley Intake Forms
 
-**Permissions:** READ, WRITE, and ADMIN
+**Permissions:** READ, WRITE, ADMIN
 
 **What it does:**
-- Creates Jira issues from form submissions
+- Reads issue and project metadata to build forms
+- Creates Jira issues and JSM customers from form submissions
 
 **What it stores:**
 - Does **not** store submitted form data
 - All iframe rendering is HTTPS-protected
 - Communications secured via SSL and JWT
+- Configuration backed up for 30+ days
 
 ---
 
 ### Raley Procurement and Quotation
 
-**Permissions:** Accesses workflow, project, and user information
+**Permissions:** READ, WRITE, ADMIN, ACCESS_EMAIL_ADDRESSES
 
 **What it stores:**
-- Workflow statuses, project keys, issue keys, and quantitative PO data
+- Workflow statuses, project keys, issue keys, and quantitative PO data (line amounts, summaries)
 - Does **not** store private user information
 - Configuration backed up for 30+ days
 
@@ -60,18 +65,27 @@ All systems run on **DigitalCloud** and **Amazon AWS** servers located in **Amst
 
 ### Raley Bookman
 
-**Permissions:** Reads issue information matching configured JQL queries
+**Permissions:** READ, WRITE, DELETE
+
+**What it reads:** Jira issues matching configured JQL queries; JSM Assets workspace information
 
 **What it stores:**
-- Booking-related data
+- App-specific booking attributes attached to Jira issues/JSM requests
 - Does **not** store private user information
 - 30+ day backup retention
 
 ---
 
-## Server-Hosted Installations
+## Server-Hosted Apps
 
-For server-hosted versions of Raley Notifications, all configuration is stored locally on your Jira server. No data is transmitted to external systems or third parties.
+### Raley Notifications (Server)
+
+**Permissions:** READ and WRITE access to issues, attachments, projects, and users on the host Jira server.
+
+**What it stores:**
+- All configuration is stored locally on your Jira server — no data is transmitted to external systems or third parties
+- RaleyApps does not collect installation data from server instances
+- Disaster recovery relies on your Jira server's own database backup
 
 ---
 

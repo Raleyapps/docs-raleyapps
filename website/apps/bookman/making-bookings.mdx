@@ -1,0 +1,60 @@
+---
+title: "Making Bookings – Raley Bookman"
+description: "How customers and employees make asset booking requests through the JSM customer portal."
+last_reviewed: "2026-05-19"
+---
+
+## Overview
+
+Customers and employees make bookings through the **JSM customer portal** by submitting a service request. The Raley Bookman interface appears below the Summary field in the request form. No Jira license is required to make a booking.
+
+## Step-by-Step Booking Process
+
+### Step 1 — Open the Request Form
+
+In the JSM customer portal, navigate to the request type configured for asset bookings (e.g., "Book a Meeting Room" or "Reserve a Company Car") and click **Raise a request**.
+
+### Step 2 — Select an Asset
+
+The Raley Bookman widget appears below the Summary field. You have two options:
+
+- **Enter the asset key directly** — type the Jira issue key of the asset you want (e.g., `FAC-12`)
+- **Click Find asset** — opens a search screen displaying all available assets matching the configured JQL or AQL filter
+
+Select the asset you want to book.
+
+### Step 3 — Review Existing Reservations
+
+Once an asset is selected, the widget displays all current reservations for that asset in **Calendar** or **List** view.
+
+- **Calendar view** — shows reserved time slots highlighted in red
+- **List view** — shows booking details and links to the corresponding JSM tickets
+
+Review the calendar to find an available time slot.
+
+### Step 4 — Set Booking Dates
+
+Enter the **Booking from** and **Booking to** dates and times using the date picker.
+
+**If Booking Durations are configured:** Select a duration from the dropdown — the "Booking to" time is calculated automatically based on your start date.
+
+**If a CRON schedule is configured:** Only valid start times as defined by the CRON expression are selectable.
+
+### Step 5 — Conflict Check
+
+Before you can submit, Raley Bookman automatically checks whether the asset is already reserved for the requested time period. If a conflict exists, you'll see a message that the asset is unavailable and must choose a different time.
+
+### Step 6 — Submit the Request
+
+Click **Send** (or **Submit**) to create the JSM ticket. The booking details (asset, start time, end time) are stored with the ticket.
+
+You can view your booking ticket in the JSM customer portal under **My Requests**.
+
+## Cancelling a Booking
+
+To cancel a booking, open the original JSM request ticket in the customer portal and use the standard JSM request cancellation option. Raley Bookman will release the asset reservation when the ticket is cancelled.
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

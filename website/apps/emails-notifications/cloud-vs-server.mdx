@@ -1,0 +1,57 @@
+---
+title: "Cloud vs Server – Raley Emails Notifications"
+description: "Feature comparison between the cloud and server versions of Raley Emails Notifications."
+last_reviewed: "2026-05-19"
+---
+
+## Overview
+
+Raley Emails Notifications is available for both Jira Cloud and Jira Server/Data Center. The core functionality is the same, but some features differ between deployment types.
+
+## Feature Comparison
+
+| Feature | Cloud | Server |
+|---|---|---|
+| **Event-triggered notifications** | ✓ | ✓ |
+| **Digest / scheduled notifications** | ✓ | ✓ |
+| **Email destinations** | ✓ | ✓ |
+| **Slack destinations** | ✓ | ✓ |
+| **HipChat destinations** | — | ✓ |
+| **JQL-based filtering** | ✓ | ✓ |
+| **Velocity template engine** | ✓ | ✓ |
+| **HTML email support** | Restricted (XSS protection applied) | Full HTML |
+| **Inline image attachments** | ✓ | ✓ |
+| **Issue file attachments** | ✓ | ✓ |
+| **JSM Approve/Decline buttons** | ✓ | — |
+| **Customer project notifications** | ✓ | — |
+| **Canned notifications (issue panel)** | ✓ | ✓ |
+| **External email recipients** | ✓ | ✓ |
+| **Organization recipients (JSM)** | ✓ | — |
+| **Component lead recipients** | — | ✓ |
+| **Project role recipients** | — | ✓ |
+| **Gmail OAuth2** | ✓ | — |
+| **Office 365 OAuth2** | ✓ | — |
+| **Custom SMTP server** | ✓ | ✓ |
+| **Template Wizard** | ✓ | — |
+| **User locale customization** | — | ✓ |
+| **User avatar in emails** | — | ✓ |
+| **Custom email headers** | — | ✓ |
+| **Audit log (private comment)** | ✓ | Dedicated Audit tab |
+| **Admin delivery monitoring** | ✓ | — |
+
+## HTML Restrictions on Cloud
+
+> **Note:** In the cloud version, not all HTML tags are supported. Certain tags are stripped for XSS (cross-site scripting) security. If you need specific HTML formatting, test your template and check the rendered output in **Preview**.
+
+## Events: Cloud vs Server
+
+**Cloud-only events:** Issue Unassigned, Jira Comment Deleted, Issue Work Started/Stopped, Worklog operations
+
+**Server-only events:** Jira Comment Deleted (server implementation), all Worklog operations
+
+**Both:** Issue Created/Updated/Assigned/Transitioned/Commented/Resolved/Closed/Deleted, Project events, Version events
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

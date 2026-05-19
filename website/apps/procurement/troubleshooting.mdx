@@ -1,0 +1,149 @@
+---
+title: "Troubleshooting – Procurement and Quotation"
+description: "Symptoms, causes, and fixes for the most common issues in Raley Procurement and Quotation."
+last_reviewed: "2026-05-19"
+---
+
+## Symptom Index
+
+| Symptom | Jump to |
+|---|---|
+| Purchase order is stuck in a status and can't move forward | [PO status not advancing](#po-status-not-advancing) |
+| Approval request was sent but approver never received a notification | [Approver not notified](#approver-not-notified) |
+| CSV product import fails or imports fewer rows than expected | [CSV import errors](#csv-import-errors) |
+| Currency or tax totals on a PO look wrong | [Incorrect PO totals](#incorrect-po-totals) |
+| API call returns 401 or 403 | [API authentication errors](#api-authentication-errors) |
+| PDF printout is missing fields or shows incorrect data | [PDF output issues](#pdf-output-issues) |
+| Users can see POs they should not have access to | [Permission and visibility issues](#permission-and-visibility-issues) |
+
+---
+
+## PO Status Not Advancing
+
+**Symptom:** A purchase order is stuck in a status (e.g., "Pending Approval") and cannot be moved to the next step.
+
+**Likely causes:**
+- The approval workflow requires a specific approver role that has not been assigned in the project
+- The current user does not have the Finance or Approval role required to advance the status
+- A mandatory custom field on the order line is empty
+
+**Fix:**
+1. Check the user's role in **Project Settings → Purchase Orders → User Roles**
+2. Confirm the approval workflow configuration matches the PO's department — go to **Project Settings → Purchase Orders → Approval Tiers**
+3. Open the PO and check for any required fields flagged in red
+
+If the workflow is correctly configured and the PO is still stuck, contact support with the Jira issue key.
+
+---
+
+## Approver Not Notified
+
+**Symptom:** An approval request was submitted but the assigned approver did not receive an email or Jira notification.
+
+**Likely causes:**
+- The approver's email address is not verified in Jira
+- The Raley Emails Notifications app is not configured with a trigger for approval events
+- Jira's own notification scheme is suppressing the notification
+
+**Fix:**
+1. Verify the approver's Jira account has a confirmed email address
+2. If using Raley Emails Notifications for approval emails, check that a workflow trigger is set for the relevant transition in **Apps → Emails Notifications → Triggers**
+3. Check Jira's project notification scheme under **Project Settings → Notifications** and confirm approvers are included in the relevant event
+
+---
+
+## CSV Import Errors
+
+**Symptom:** A CSV import fails, shows an error, or imports fewer products than the file contains.
+
+**Likely causes:**
+- The file has a header row (the importer expects no header)
+- A row is missing both column 1 (description) and column 2 (SKU) — at least one is required
+- The price column (column 3) contains a currency symbol or non-numeric character
+- The file separator is not one of the accepted options (comma, semicolon, or pipe)
+
+**Fix:**
+1. Remove the header row from your CSV file
+2. Make sure every row has at least a description or SKU value in columns 1 or 2
+3. Strip all currency symbols from column 3 — only digits and a decimal point are accepted (e.g., `29.99` not `$29.99`)
+4. Re-select the correct separator when uploading
+
+Invalid rows are skipped. After import, check the confirmation count against your expected record count to identify how many were skipped.
+
+See [Importing Products from CSV](/apps/procurement/importing-products-from-csv) for the full file format reference.
+
+---
+
+## Incorrect PO Totals
+
+**Symptom:** Currency or tax amounts on a purchase order don't match expectations.
+
+**Likely causes:**
+- The product's unit price was entered as a gross price (tax included) but the tax rule is also being applied, causing double-counting
+- The wrong tax rate is assigned to the product
+- Multi-currency conversion rates are outdated
+
+**Fix:**
+1. Open the product in **Project Settings → Suppliers → Products** and confirm whether the unit price is gross (tax included) or net
+2. Check the tax rate assigned to the product and compare it against your configured tax rules in **Project Settings → Purchase Orders → Tax Management**
+3. For multi-currency orders, review and update exchange rates in **Project Settings → Purchase Orders → Currency Management**
+
+---
+
+## API Authentication Errors
+
+**Symptom:** API calls return HTTP `401 Unauthorized` or `403 Forbidden`.
+
+**Likely causes:**
+- The API key is missing from the `Authorization` header
+- The API key has been regenerated in the app settings, invalidating the old key
+- The API key belongs to a different Jira project than the one being queried
+
+**Fix:**
+1. Confirm the request includes the header: `Authorization: <your-api-key>`
+2. Go to **Apps → Raley Procurement → API & Integrations** and copy the current key — regenerating creates a new key and immediately invalidates the previous one
+3. Verify the `issueKey` or resource in your request belongs to the same Jira project where the API key was generated
+
+See [API and Integrations](/apps/procurement/api-and-integrations) for the full endpoint reference.
+
+---
+
+## PDF Output Issues
+
+**Symptom:** A generated PO PDF is missing fields, shows placeholder text, or has incorrect formatting.
+
+**Likely causes:**
+- The PDF template references a custom field that does not exist in the current project
+- Required order fields (supplier, currency, or order lines) are empty
+- The PDF layout was customized but the changes were not saved
+
+**Fix:**
+1. Open the PO issue in Jira and confirm all required fields are populated before generating the PDF
+2. Go to **Project Settings → Purchase Orders → PDF Customization** and verify the template uses only fields that exist in this project
+3. Save any pending template changes and regenerate the PDF
+
+---
+
+## Permission and Visibility Issues
+
+**Symptom:** Users can see purchase orders, supplier data, or approval configurations they should not have access to.
+
+**Likely causes:**
+- The user has a broader Jira project role than intended (e.g., Project Admin) that overrides app-level restrictions
+- App-level user roles (Finance, Viewer, Approval) have not been configured — all project members default to full access if roles are not set
+
+**Fix:**
+1. Go to **Project Settings → Purchase Orders → User Roles** and assign explicit roles to each user or group
+2. Users with the Jira **Project Administrator** role bypass app-level restrictions by design — limit this role in **Project Settings → People**
+3. Review security release notes for your installed version: [Security 2021](/apps/procurement/security-2021) and [Security 2022](/apps/procurement/security-2022)
+
+If you suspect unauthorized data access has occurred, contact support immediately.
+
+---
+
+## Still Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+
+We respond to all requests within **1 business day** (Mon–Fri, 8am–9pm GMT+2).

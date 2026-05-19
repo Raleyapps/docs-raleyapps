@@ -1,28 +1,66 @@
 ---
 title: "Sales Quotes"
 description: "Create and send quotes to customers directly from Jira."
+last_reviewed: "2026-05-19"
 ---
 
 ## Overview
 
 The Sales Quotes module lets your team create, manage, and send customer-facing quotes without leaving Jira. From initial setup to PDF delivery, the entire quoting process lives inside your Jira project.
 
-## What's Available
+**Required role:** Finance or higher
 
-<CardGroup cols={2}>
-  <Card title="Get Started" icon="play">
-    New to Sales Quotes? Start here for a guided introduction to the module.
-  </Card>
-  <Card title="Application Setup" icon="gear">
-    Configure Sales Quotes for your Jira project — permissions, fields, and workflows.
-  </Card>
-  <Card title="PDF Printout" icon="file-pdf">
-    Generate and customize PDF versions of your quotes for sending to customers.
-  </Card>
-  <Card title="Setup with Raley Emails Notifications" icon="envelope">
-    Automatically send quotes via email using the Raley Emails Notifications integration.
-  </Card>
-</CardGroup>
+## Application Setup
+
+Before creating your first quote, configure Sales Quotes in your Jira project:
+
+1. Go to **Project Settings** in your Jira project left panel
+2. Find **Raley Procurement — Sales Quotes** in the settings menu
+3. Set the **default currency** for quotes
+4. Configure the **quote number format** (prefix, starting number, and auto-increment)
+5. Assign user roles — which team members can create, edit, and approve quotes
+
+## Creating Your First Quote
+
+1. Open your Jira project and go to **Apps → Sales Quotes**
+2. Click **Create new quote**
+3. Fill in the customer details — name, contact email, and billing address
+4. Add line items: select a product from your catalog or enter a custom item with description and unit price
+5. Apply any discounts at the line or order level
+6. Set the quote expiry date
+7. Click **Save**
+
+The quote is now saved as a draft. Review it before sending.
+
+## Generating a PDF
+
+1. Open a saved quote
+2. Click **Print / Export PDF**
+3. The PDF uses the template configured in **Project Settings → Sales Quotes → PDF Customization**
+4. Download the PDF or proceed to send it by email
+
+To customize the PDF layout (logo, columns, footer text), go to **Project Settings → Sales Quotes → PDF Customization**.
+
+## Sending a Quote by Email
+
+If you have **Raley Emails Notifications** installed, you can send the PDF directly from the quote:
+
+1. Open the quote and click **Send by Email**
+2. Enter or confirm the recipient's email address
+3. Select the email template to use (configured in Raley Emails Notifications)
+4. Click **Send**
+
+The sent quote is logged in the Jira issue activity feed. To set up automated quote-sent email templates, see [Raley Emails Notifications](/apps/raley-emails-notifications).
+
+## Quote Statuses
+
+| Status | Meaning |
+|---|---|
+| **Draft** | Quote is being prepared — not visible to the customer |
+| **Sent** | Quote has been delivered to the customer |
+| **Accepted** | Customer has confirmed acceptance |
+| **Declined** | Customer has declined |
+| **Expired** | Quote passed its expiry date without a response |
 
 ## Need Help?
 

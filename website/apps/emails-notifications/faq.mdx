@@ -1,0 +1,101 @@
+---
+title: "FAQ – Raley Emails Notifications (Cloud)"
+description: "Frequently asked questions about Raley Emails Notifications for Jira Cloud."
+last_reviewed: "2026-05-19"
+---
+
+## Data and Privacy
+
+**Do Raley Emails Notifications store private data as defined by Atlassian?**
+
+No. The app does not store private user data. See the [Data Security and Privacy Statement](/policies/data-security-and-privacy) for full details.
+
+**Where are your servers hosted?**
+
+Servers are located in New York City, US (DigitalOcean and Amazon AWS).
+
+---
+
+## Access and Permissions
+
+**Who can configure Raley Emails Notifications?**
+
+By default, only users with **ADMINISTER** or **JIRA_ADMIN** permissions can configure notification rules and app settings. You can grant additional Jira user groups access through the app's **Settings** menu.
+
+The **Raley issue panel** (for instant/canned notifications) is available to any Jira user who has access to the issue — no admin role required.
+
+**Does Raley replace standard Jira or JSM notifications?**
+
+No. Raley Emails Notifications is a completely separate system from Jira's built-in notification schemes and JSM customer notifications. Running Raley alongside standard Jira/JSM notifications does not cause conflicts. Raley does not modify your existing Jira Notification Schemes.
+
+---
+
+## Email Sending
+
+**Which IP addresses do Raley's shared mail servers use?**
+
+If you need to whitelist Raley's shared sending servers in your email system, add these IPs:
+
+- `45.55.218.70`
+- `161.35.132.150`
+- `138.197.14.52`
+- `64.225.21.7`
+
+**Can I use my own mail server?**
+
+Yes. You can connect any SMTP-compatible server. For Gmail or Office 365, switch to **OAuth2 authentication**. For other providers, use the legacy password method and test the connection using the **Send test message** button in server settings.
+
+---
+
+## Templates
+
+**Do you provide example templates to start from?**
+
+Yes. The app includes predefined customer email notification templates and a **Template Wizard** that guides you through building a template step by step. See [Templating](/apps/emails-notifications/templating).
+
+**How do I format date/time fields in a template?**
+
+Use the `$jirassimo.formatDate()` helper with your preferred format pattern. Example:
+
+```
+$jirassimo.formatDate($issue.fields.created, "dd MMM yy hh:mm")
+```
+
+**How do I send to different Slack channels based on a user's email?**
+
+Create email-to-Slack channel bindings in **Settings** as key=value pairs (one per line). Then resolve them in your template:
+
+```
+$jirassimo.settingValue($issue.fields.customfield_10000)
+```
+
+---
+
+## Scheduling
+
+**Can I run digest notifications more than once per hour?**
+
+No. The scheduler checks hourly which digest notifications are eligible to run. Sub-hourly intervals are not supported.
+
+**How do I use custom CRON expressions for scheduled notifications?**
+
+Enter a standard CRON expression (5-part format) in the schedule field. The system evaluates it hourly to determine whether the notification should fire.
+
+---
+
+## Troubleshooting
+
+**How do I know if a notification failed?**
+
+Check the **Send Audit** tab in the app. Failed deliveries show a Status of **Error** with a description of the cause (e.g., SMTP connection failure, template evaluation error, insufficient Jira permissions).
+
+You can also enable admin monitoring alerts — see [Monitoring](/apps/emails-notifications/monitoring).
+
+For step-by-step diagnosis, see [Troubleshooting](/apps/emails-notifications/troubleshooting).
+
+---
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

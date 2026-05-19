@@ -1,11 +1,37 @@
 ---
 title: "Raley Emails Notifications"
 description: "Send customized emails and Slack notifications to anyone directly from Jira or JSM."
+last_reviewed: "2026-05-19"
 ---
 
 ## Overview
 
 Raley Emails Notifications lets you send fully customized emails and Slack messages straight from your Jira or Jira Service Management (JSM) projects — without leaving the tool your team already uses.
+
+## How It Works
+
+The app runs as an Atlassian Connect cloud add-on. When a configured trigger fires (a workflow transition, a schedule, or a manual send), the app reads the relevant Jira issue data and sends the email through your configured sending method.
+
+```
+Jira workflow transition / schedule / manual trigger
+       ↓
+Raley Emails Notifications app (Atlassian Connect)
+       ↓  reads issue data via Jira REST API
+Raley AppServer assembles the email from your template
+       ↓
+Sends via: Raley shared mail server  OR  your SMTP server  OR  Gmail OAuth
+       ↓
+Recipient's inbox
+```
+
+**Sending options:**
+| Method | Best for |
+|---|---|
+| Raley shared mail server | Quick setup, no SMTP credentials needed |
+| Your own SMTP server | Custom sender domain, compliance requirements |
+| Gmail OAuth | Gmail accounts — enables email threading via Message-ID |
+
+The app reads Jira issue data (fields, comments, user info) but does **not** persistently store issue content. Configuration (templates, triggers) is backed up for 30+ days. See [Data Security and Privacy](/policies/data-security-and-privacy).
 
 ## What You Can Do
 
@@ -15,29 +41,42 @@ Raley Emails Notifications lets you send fully customized emails and Slack messa
 - Set up **scheduled digest notifications**
 - Include full **comment history** in outgoing emails
 
-## Key Features
+## Documentation
 
-### Email Templates
-Build rich templates using standard Jira fields, custom fields, and asset fields. Add your company logo, colors, and styling to keep emails on-brand.
+<CardGroup cols={2}>
+  <Card title="Getting Started" icon="play" href="/apps/emails-notifications/getting-started">
+    Install and configure your first notification rule for Jira Cloud.
+  </Card>
+  <Card title="Features" icon="list-check" href="/apps/emails-notifications/features">
+    Complete feature list — events, recipients, templates, and sending options.
+  </Card>
+  <Card title="Tutorials" icon="graduation-cap" href="/apps/emails-notifications/tutorials">
+    Step-by-step lessons: status change, comment, digest, and change-log notifications.
+  </Card>
+  <Card title="Templating" icon="code" href="/apps/emails-notifications/templating">
+    Velocity template reference — variables, conditionals, helpers, and examples.
+  </Card>
+  <Card title="Cookbook" icon="book-open" href="/apps/emails-notifications/cookbook">
+    Ready-made solutions for 40+ common notification scenarios.
+  </Card>
+  <Card title="FAQ" icon="circle-question" href="/apps/emails-notifications/faq">
+    Answers to common questions about permissions, sending, templates, and scheduling.
+  </Card>
+  <Card title="Troubleshooting" icon="wrench" href="/apps/emails-notifications/troubleshooting">
+    Diagnose delivery failures, SMTP issues, and notifications not triggering.
+  </Card>
+  <Card title="Monitoring" icon="chart-line" href="/apps/emails-notifications/monitoring">
+    Set up admin delivery alerts and use the Send Audit tab.
+  </Card>
+  <Card title="Cloud vs Server" icon="server" href="/apps/emails-notifications/cloud-vs-server">
+    Feature comparison between cloud and server/Data Center versions.
+  </Card>
+  <Card title="vs Jira Notifications" icon="arrows-left-right" href="/apps/emails-notifications/vs-jira-notifications">
+    How Raley compares to Jira Cloud's built-in notification system.
+  </Card>
+</CardGroup>
 
-### Recipients & Routing
-- Add external email addresses and distribution lists
-- Set dynamic **From** name and address
-- Include **CC** and **BCC** recipients
+## Need Help?
 
-### Workflow Integration
-Trigger emails automatically when issues move through workflow steps. Include approval and decline links for JSM service requests.
-
-### Advanced Options
-- Group related activity into a **single digest email** instead of multiple notifications
-- Integrate with your own **SMTP server**
-- Connect with **Gmail OAuth** for email threading via Message-ID tracking
-
-## Getting Started
-
-1. Install Raley Emails Notifications from the [Atlassian Marketplace](https://marketplace.atlassian.com)
-2. Open the app configuration in your Jira project settings
-3. Create your first email template
-4. Set up a workflow trigger or schedule
-
-For step-by-step guides, tutorials, and troubleshooting, visit our [Support Portal](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3) or email [support@raleyapps.com](mailto:support@raleyapps.com).
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

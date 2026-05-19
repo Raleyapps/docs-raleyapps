@@ -1,0 +1,48 @@
+---
+title: "Raley Emails Notifications vs Jira Cloud Notifications"
+description: "Feature comparison between Raley Emails Notifications and Jira Cloud's built-in notification system."
+last_reviewed: "2026-05-19"
+---
+
+## Overview
+
+Jira Cloud includes a built-in notification system. Raley Emails Notifications is a separate add-on that extends and replaces it for teams that need more control over email content, recipients, and delivery. The two systems can run **simultaneously without conflict** — Raley does not modify your Jira Notification Scheme.
+
+## Comparison
+
+| Capability | Jira Cloud Notifications | Raley Emails Notifications |
+|---|---|---|
+| **Email template customization** | Predefined templates, limited options | Fully customizable HTML via Velocity templates |
+| **Attach issue files to email** | Not supported | ✓ Supported |
+| **Attach issue PDF snapshot** | Not supported | ✓ Supported |
+| **Display custom field values in subject** | Not supported | ✓ Supported |
+| **Conditional logic in templates** | Not supported | ✓ Full Velocity conditionals (`#if`, `#foreach`) |
+| **Dynamic From address** | Not supported | ✓ Set per notification |
+| **CC and BCC recipients** | Not supported | ✓ Supported |
+| **External (non-Jira) recipients** | Not supported | ✓ Supported |
+| **Digest / aggregated notifications** | Not supported | ✓ Supported |
+| **Company logo in emails** | Not supported | ✓ Supported |
+| **Inline images** | Not supported | ✓ Supported |
+| **Request history in customer emails** | Not supported | ✓ Supported |
+| **Multiple SMTP servers** | Not supported | ✓ Supported |
+| **Email audit log** | Not supported | ✓ Full audit trail |
+| **Gmail OAuth2** | ✓ | ✓ |
+| **Microsoft OAuth2** | ✓ | ✓ |
+| **Workflow transition triggers** | ✓ | ✓ |
+| **JSM Approve/Decline buttons** | ✓ | ✓ |
+
+## Key Differences
+
+**Jira Cloud notifications** are good for standard, team-internal alerts where the default Jira email template is sufficient.
+
+**Raley Emails Notifications** is the right choice when you need:
+- Branded, customer-facing emails with your company's logo and styling
+- Emails that include issue attachments, PDF exports, or custom field data
+- Sending to recipients outside your Jira instance
+- Digest summaries instead of individual per-event emails
+- A full audit trail of every email sent
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

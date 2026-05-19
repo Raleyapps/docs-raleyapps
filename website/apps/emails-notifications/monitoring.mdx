@@ -1,0 +1,50 @@
+---
+title: "Monitoring – Raley Emails Notifications"
+description: "Monitor email delivery and set up admin alerts for delivery failures in Raley Emails Notifications."
+last_reviewed: "2026-05-19"
+---
+
+## Overview
+
+Raley continuously monitors outgoing email delivery. When a delivery failure occurs — such as an SMTP connection error, OAuth2 problem, or authentication failure — the system records it and can alert administrators automatically.
+
+## Send Audit
+
+The **Send Audit** tab is the primary tool for reviewing notification delivery.
+
+- Go to **Apps → Raley Emails Notifications → Send Audit**
+- Filter by notification name, issue key, recipient, or status
+- Entries with **Status = Error** include a description of the failure reason
+
+Common error types visible in the audit:
+- SMTP connection failure
+- OAuth2 token expired
+- Template evaluation error
+- Insufficient Jira permissions to read the required fields
+
+## Admin Delivery Alerts
+
+Jira administrators can enable automatic email alerts when delivery failures are detected.
+
+**To enable monitoring alerts:**
+
+1. Go to **Apps → Raley Emails Notifications → Settings**
+2. Find the **Monitoring** section
+3. Enter one or more email addresses (comma-separated) where alert digests should be sent
+4. Save
+
+The monitoring system runs **hourly**. If delivery failures occurred in the previous hour, a summary email is sent to the configured addresses. The summary includes:
+- The notification name that failed
+- The failure reason
+- The number of affected emails
+
+**Monitoring emails are sent from:** `notifications@raleyapps.com`
+
+## When No Monitoring Is Configured
+
+If no monitoring email is configured, delivery failures will only be visible in the Send Audit tab. Users won't be notified automatically. It is strongly recommended to configure at least one monitoring recipient for production instances.
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)

@@ -1,0 +1,100 @@
+---
+title: "Cookbook – Raley Emails Notifications (Cloud)"
+description: "Ready-made solutions for common Raley Emails Notifications configuration scenarios."
+last_reviewed: "2026-05-19"
+---
+
+## Overview
+
+The Cookbook contains solutions to common notification scenarios. Each recipe links to a detailed configuration guide. If you don't see your scenario here, visit the [Tutorials](/apps/emails-notifications/tutorials) section or contact support.
+
+---
+
+## Workflow and Transitions
+
+- **Send a notification on workflow status change** — Trigger an email when an issue moves to a specific status
+- **Notify on field value change** — Fire when a custom field (e.g., priority, department) changes
+- **Notify only on specific transitions** — Filter by the exact transition name rather than destination status
+
+---
+
+## Digests and Summaries
+
+- **Daily digest of all open issues** — One email per day summarizing active work
+- **Digest of issues commented in the last N hours** — Consolidate comment activity for a team
+- **Past-due issues digest** — Weekly list of overdue issues by assignee
+- **Issues with no activity for N days** — Detect stalled work before it becomes a problem
+- **Sprint summary digest** — Weekly review of sprint progress including status changes and comments
+
+---
+
+## Content Formatting
+
+- **Display issue data in an HTML table** — Format line items or multi-value fields as a table
+- **Control comment order in digest emails** — Show newest or oldest comments first
+- **Use HTML vs plain text** — When to use rich HTML vs a simpler plain-text template
+- **Embed an inline image in the email body** — Add a logo, chart, or screenshot inline
+
+---
+
+## JSM-Specific Scenarios
+
+- **Customer notification when a public comment is added** — Exclude internal notes from customer-facing emails
+- **Send Approve and Decline buttons** — Include one-click approval links for JSM approval requests
+- **Notify customer on request status change** — Keep customers updated on their ticket progress
+- **Handling internal vs. external comments differently** — Route internal notes to the team and public comments to the customer
+
+---
+
+## Conditional Logic
+
+- **Send only when a custom field has a specific value** — E.g., notify only for "Finance" department issues
+- **Exclude notifications when the commenter is the assignee** — Prevent "self-notification" loops
+- **Detect if a notification was triggered by an automation rule** — Filter out automated updates from notifying humans
+
+---
+
+## Recipients
+
+- **Notify multiple Jira groups** — Add all members of two or more groups as recipients
+- **Notify external users not in Jira** — Send to email addresses outside your Jira instance
+- **Send to different Slack channels by project or user** — Map users or projects to specific Slack channels using settings key=value bindings
+- **Exclude the person who triggered the event** — Avoid notifying the user who made the change
+
+---
+
+## Integration
+
+- **Set up Gmail OAuth2** — Connect Gmail as the sending account for email threading
+- **Set up Office 365 OAuth2** — Use your company Microsoft account for sending
+- **Connect a custom SMTP server** — Use your own mail infrastructure
+- **Send notifications to Slack channels** — Route Jira events to a Slack destination
+- **Integrate with Atlassian Assets objects** — Include JSM Assets data in notification templates
+
+---
+
+## Email Configuration
+
+- **Add your company logo** — Embed a logo image in all outgoing notification emails
+- **Set a custom From name and address** — Control how the sender appears in recipients' inboxes
+- **Send issue attachments by email** — Automatically attach files from the Jira issue
+- **Add custom email headers** — Insert Message-ID or other headers for threading and compliance
+- **Configure audit logging** — Store a copy of each sent notification as a private issue comment
+
+---
+
+## Advanced Features
+
+- **Use the Template Wizard** — Step-by-step guided template builder
+- **Display linked issues in a notification** — Show related issues (blocks/is blocked by, relates to) in the email body
+- **Detect if the trigger came from Jira Automation** — Avoid double-notifications when automations and Raley both respond to the same event
+- **Set up scheduled notifications with CRON** — Control exactly when digest emails fire using CRON expressions
+
+---
+
+## Need Help?
+
+For detailed configuration steps on any of these scenarios, contact our support team:
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
