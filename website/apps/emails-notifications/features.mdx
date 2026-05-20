@@ -19,13 +19,10 @@ Raley listens to a comprehensive set of Jira and JSM events:
 ## Notification Types
 
 ### Event-Triggered Notifications
-
 Fires immediately when a defined event occurs and the configured conditions are met.
 
 ### Digest Notifications
-
 Collects changes to a group of issues over a defined time period and sends them as a single summary email. Useful for:
-
 - Issues commented during a specified period
 - High-priority issues approaching deadlines, grouped by assignee
 - Issues with no activity for N days
@@ -33,7 +30,6 @@ Collects changes to a group of issues over a defined time period and sends them 
 Digests run on a schedule — the minimum interval is **1 hour** (sub-hourly scheduling is not supported).
 
 ### Canned Notifications
-
 Pre-built templates available directly from the Jira issue view, allowing any authorized user to trigger a notification on demand without admin configuration.
 
 ## Recipients
@@ -41,7 +37,7 @@ Pre-built templates available directly from the Jira issue view, allowing any au
 Notifications can be sent to any combination of:
 
 | Recipient Type | Description |
-| --- | --- |
+|---|---|
 | Reporter | The user who created the issue |
 | Assignee | The currently assigned user |
 | Watchers | All users watching the issue |
@@ -69,7 +65,6 @@ All destination types support **To**, **CC**, and **BCC** fields.
 ## Template Engine
 
 Uses a **Velocity-based template language** to insert dynamic content:
-
 - Any standard Jira field
 - Custom fields
 - Asset fields (JSM Assets)
@@ -89,7 +84,7 @@ See [Templating](/apps/emails-notifications/templating) for the full reference.
 ## Sending Options
 
 | Method | Description |
-| --- | --- |
+|---|---|
 | Raley shared mail server | No configuration needed — send immediately |
 | Custom SMTP server | Use your own domain; supports OAuth2 (Gmail, Office 365) and legacy password auth |
 | Gmail OAuth | Enables email threading via Message-ID tracking |
@@ -104,10 +99,30 @@ See [Monitoring](/apps/emails-notifications/monitoring) for setup details.
 
 ## Access Control
 
-By default, only users with **ADMINISTER** or **JIRA\_ADMIN** permissions can configure notification rules. Additional Jira user groups can be granted access through the app's Settings. The Raley issue panel (for canned / instant notifications) is available to any Jira user with access to the issue.
+By default, only users with **ADMINISTER** or **JIRA_ADMIN** permissions can configure notification rules. Additional Jira user groups can be granted access through the app's Settings. The Raley issue panel (for canned / instant notifications) is available to any Jira user with access to the issue.
 
 ## Need Help?
 
 - **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
 - **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
-- [Export Our Apps:](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc) [https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc)
+
+---
+
+## Explore Other RaleyApps
+
+<CardGroup cols={2}>
+  <Card title="Raley Intake Forms" icon="file-lines" href="/apps/raley-intake-forms">
+    Create powerful intake forms directly inside Jira and JSM.
+  </Card>
+  <Card title="Raley Procurement and Quotation" icon="cart-shopping" href="/apps/raley-procurement-and-quotation">
+    Manage purchase orders and sales quotes from within Jira.
+  </Card>
+  <Card title="Raley Bookman" icon="calendar-check" href="/apps/raley-bookman">
+    Asset booking management inside the JSM portal.
+  </Card>
+  <Card title="Raley Favorites" icon="star" href="/apps/raley-favorites">
+    Save and quickly access your most important Jira issues.
+  </Card>
+</CardGroup>
+
+[Browse all RaleyApps on the Atlassian Marketplace →](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc)

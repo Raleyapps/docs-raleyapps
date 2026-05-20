@@ -26,12 +26,14 @@
       "pages": [
         {
           "group": "Getting Started",
+          "collapsed": true,
           "pages": [
             "apps/emails-notifications/getting-started"
           ]
         },
         {
           "group": "About the App",
+          "collapsed": true,
           "pages": [
             "apps/raley-emails-notifications",
             "apps/emails-notifications/features",
@@ -41,12 +43,14 @@
         },
         {
           "group": "Templates",
+          "collapsed": true,
           "pages": [
             "apps/emails-notifications/templating"
           ]
         },
         {
           "group": "How to Use",
+          "collapsed": true,
           "pages": [
             "apps/emails-notifications/tutorials",
             "apps/emails-notifications/monitoring"
@@ -54,18 +58,21 @@
         },
         {
           "group": "Use Cases",
+          "collapsed": true,
           "pages": [
             "apps/emails-notifications/cookbook"
           ]
         },
         {
           "group": "Troubleshooting",
+          "collapsed": true,
           "pages": [
             "apps/emails-notifications/troubleshooting"
           ]
         },
         {
           "group": "FAQ",
+          "collapsed": true,
           "pages": [
             "apps/emails-notifications/faq",
             "apps/emails-notifications/security-2021"
@@ -78,12 +85,14 @@
       "pages": [
         {
           "group": "Getting Started",
+          "collapsed": true,
           "pages": [
             "apps/intake-forms/getting-started"
           ]
         },
         {
           "group": "About the App",
+          "collapsed": true,
           "pages": [
             "apps/raley-intake-forms",
             "apps/intake-forms/introduction"
@@ -91,19 +100,29 @@
         },
         {
           "group": "How to Use",
+          "collapsed": true,
           "pages": [
             "apps/intake-forms/cookbook"
           ]
         },
         {
           "group": "Use Cases",
+          "collapsed": true,
           "pages": [
             "apps/intake-forms/advantages-over-issue-collector",
             "apps/intake-forms/vs-jira-cloud-forms"
           ]
         },
         {
+          "group": "Troubleshooting",
+          "collapsed": true,
+          "pages": [
+            "apps/intake-forms/troubleshooting"
+          ]
+        },
+        {
           "group": "FAQ",
+          "collapsed": true,
           "pages": [
             "apps/intake-forms/faq"
           ]
@@ -115,6 +134,7 @@
       "pages": [
         {
           "group": "Getting Started",
+          "collapsed": true,
           "pages": [
             "apps/raley-procurement-and-quotation",
             "apps/procurement/purchase-orders",
@@ -123,6 +143,7 @@
         },
         {
           "group": "How to Use",
+          "collapsed": true,
           "pages": [
             "apps/procurement/managing-suppliers-and-products",
             "apps/procurement/importing-products-from-csv",
@@ -135,18 +156,21 @@
         },
         {
           "group": "Use Cases",
+          "collapsed": true,
           "pages": [
             "apps/procurement/api-and-integrations"
           ]
         },
         {
           "group": "Troubleshooting",
+          "collapsed": true,
           "pages": [
             "apps/procurement/troubleshooting"
           ]
         },
         {
           "group": "FAQ",
+          "collapsed": true,
           "pages": [
             "apps/procurement/security-2021",
             "apps/procurement/security-2022"
@@ -159,6 +183,7 @@
       "pages": [
         {
           "group": "Getting Started",
+          "collapsed": true,
           "pages": [
             "apps/raley-bookman",
             "apps/bookman/configuration"
@@ -166,19 +191,29 @@
         },
         {
           "group": "About the App",
+          "collapsed": true,
           "pages": [
             "apps/bookman/features"
           ]
         },
         {
           "group": "How to Use",
+          "collapsed": true,
           "pages": [
             "apps/bookman/making-bookings",
             "apps/bookman/asset-bookings-monitoring"
           ]
         },
         {
+          "group": "Troubleshooting",
+          "collapsed": true,
+          "pages": [
+            "apps/bookman/troubleshooting"
+          ]
+        },
+        {
           "group": "FAQ",
+          "collapsed": true,
           "pages": [
             "apps/bookman/application-scopes"
           ]
@@ -190,6 +225,7 @@
       "pages": [
         {
           "group": "Getting Started",
+          "collapsed": true,
           "pages": [
             "apps/raley-favorites"
           ]

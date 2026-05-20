@@ -1,0 +1,153 @@
+---
+title: "Troubleshooting – Raley Intake Forms"
+description: "Diagnose and fix common issues with Raley Intake Forms form submissions and configuration."
+last_reviewed: "2026-05-20"
+---
+
+## Symptom Index
+
+| Symptom | Jump to |
+|---|---|
+| Form submission does not create a Jira issue | [Submission not creating an issue](#submission-not-creating-an-issue) |
+| Form fields are not mapping to the correct Jira fields | [Fields not mapping correctly](#fields-not-mapping-correctly) |
+| Embedded form not loading on the website | [Embed not loading](#embed-not-loading) |
+| Confluence macro shows a blank form or error | [Confluence macro error](#confluence-macro-error) |
+| Conditional fields not showing or hiding as expected | [Conditional logic not working](#conditional-logic-not-working) |
+| JIFF filters returning wrong or empty options | [JIFF filter issues](#jiff-filter-issues) |
+
+---
+
+## Submission Not Creating an Issue
+
+**Symptom:** A user submits the form successfully but no Jira issue is created.
+
+**Likely causes:**
+- The Jira project or issue type configured in the form has been deleted or archived
+- The app's **WRITE** permission was revoked (Jira app permissions)
+- A required Jira field is not included in the form, causing the issue creation to fail silently
+
+**Fix:**
+1. Go to the IntakeForms configuration in your Jira project and confirm the **Target Project** and **Issue Type** still exist and are active
+2. Check **Jira Settings → Apps → Manage Apps → Raley IntakeForms** and verify the app has WRITE permission
+3. Open your Jira project's **Required Fields** configuration and confirm all mandatory fields are included in the form
+4. Submit a test entry and check the Jira issue creation audit in the app configuration if available
+
+---
+
+## Fields Not Mapping Correctly
+
+**Symptom:** Form submissions create Jira issues, but data appears in the wrong fields or is missing entirely.
+
+**Likely causes:**
+- A custom Jira field was renamed or its ID changed after the form was configured
+- The field mapping was set up for a different issue type than the one now being used
+- A dropdown or multi-select option in the form does not exactly match the allowed values in the Jira field
+
+**Fix:**
+1. Open the IntakeForms configuration and review the **field mapping** for each form field
+2. For custom fields: verify the field name in the mapping matches the current Jira field name exactly (field IDs can differ from display names)
+3. For dropdowns: confirm the option values in the form match the allowed values in the Jira field — extra spaces or different capitalization will cause a mismatch
+4. After correcting the mapping, submit a test entry to verify
+
+---
+
+## Embed Not Loading
+
+**Symptom:** The integration code is pasted into a web page but the form does not appear — the page shows a blank space or an error message.
+
+**Likely causes:**
+- The integration code snippet was pasted incorrectly or is incomplete
+- A Content Security Policy (CSP) on the host website is blocking the form's script
+- The browser is blocking third-party scripts
+
+**Fix:**
+1. Return to the IntakeForms configuration and copy the integration code again — do not manually edit it
+2. Paste the code into a plain HTML `<div>` block without any wrapper that might strip attributes
+3. Check the browser's developer console (F12 → Console) for CSP or script-loading errors
+4. If you see a CSP error, ask your web administrator to add the Raley IntakeForms domain to the `script-src` and `frame-src` CSP directives
+5. Test the form in a browser with extensions disabled to rule out ad-blocker interference
+
+---
+
+## Confluence Macro Error
+
+**Symptom:** The Raley IntakeForms Viewer macro added to a Confluence page shows a blank area, "Error rendering macro," or prompts for login.
+
+**Likely causes:**
+- The **Raley IntakeForms Viewer** plugin is not installed in Confluence, or is an outdated version
+- The form ID referenced in the macro no longer exists in the IntakeForms configuration
+- The Confluence add-on's **ACT_AS_USER** permission was not granted during installation
+
+**Fix:**
+1. Confirm the Raley IntakeForms Viewer plugin is installed and up to date in **Confluence Settings → Manage Apps**
+2. Open the macro settings on the Confluence page and verify the form ID matches an active form in your IntakeForms configuration
+3. If the macro shows an authorization prompt: re-install the Confluence plugin and ensure you grant the **ACT_AS_USER** permission when prompted
+4. If using Confluence Cloud, confirm the plugin version supports Confluence Cloud (separate from the Server version)
+
+---
+
+## Conditional Logic Not Working
+
+**Symptom:** Fields that should show or hide based on another field's value are not responding correctly.
+
+**Likely causes:**
+- The condition references a field option value that doesn't exactly match (case-sensitive or with extra spaces)
+- Field rules and form rules are conflicting
+- The form cache is serving an older version of the configuration
+
+**Fix:**
+1. Open the IntakeForms WYSIWYG editor and review the rule for the affected field
+2. Check that the option value in the condition matches the exact text of the dropdown option — including capitalization and spacing
+3. Review whether a **form-level rule** and a **field-level rule** are both targeting the same field — simplify to one rule per field where possible
+4. Clear your browser cache and reload the form to rule out a cached version
+
+For more on rule types, see [Cookbook: Form Rules vs Field Rules](/apps/intake-forms/cookbook).
+
+---
+
+## JIFF Filter Issues
+
+**Symptom:** A dropdown or multi-select field configured with a JIFF filter returns no options, the wrong options, or all options regardless of the filter.
+
+**Likely causes:**
+- The JIFF filter configuration references a project or issue type that has been renamed or no longer exists
+- The filter criteria don't match any available values given the current form context
+- The filter was set up for a different field type than the one being filtered
+
+**Fix:**
+1. Go to the IntakeForms configuration and open the JIFF filter settings for the affected field
+2. Verify the **project key** and **issue type** in the filter still exist in Jira with the exact names used
+3. Test the JIFF filter in isolation by temporarily making the filtered field a plain dropdown to confirm the underlying data is accessible
+4. If the filter criteria are correct but no options appear, contact support with the form ID and JIFF filter configuration
+
+For more on JIFF filters, see [Cookbook: Raley IntakeForms Filters (JIFF)](/apps/intake-forms/cookbook).
+
+---
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+
+When contacting support, include: your Jira Cloud URL, the form ID, a description of the submission that failed, and any browser console errors.
+
+---
+
+## Explore Other RaleyApps
+
+<CardGroup cols={2}>
+  <Card title="Raley Emails Notifications" icon="envelope" href="/apps/raley-emails-notifications">
+    Send customized emails and Slack notifications from Jira and JSM.
+  </Card>
+  <Card title="Raley Procurement and Quotation" icon="cart-shopping" href="/apps/raley-procurement-and-quotation">
+    Manage purchase orders and sales quotes from within Jira.
+  </Card>
+  <Card title="Raley Bookman" icon="calendar-check" href="/apps/raley-bookman">
+    Asset booking management inside the JSM portal.
+  </Card>
+  <Card title="Raley Favorites" icon="star" href="/apps/raley-favorites">
+    Save and quickly access your most important Jira issues.
+  </Card>
+</CardGroup>
+
+[Browse all RaleyApps on the Atlassian Marketplace →](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc)

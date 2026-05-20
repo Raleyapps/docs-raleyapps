@@ -15,7 +15,7 @@ Raley Emails Notifications uses a **Velocity-based template language** to genera
 These variables are available in every template:
 
 | Variable | Description |
-| --- | --- |
+|---|---|
 | `$issue` | The triggering Jira issue object |
 | `$issue.key` | Issue key (e.g., `ABC-123`) |
 | `$issue.fields.summary` | Issue summary |
@@ -94,13 +94,13 @@ Loop over a list (e.g., issue links, components, or digest issue sets):
 
 **Format a date:**
 
-```text
+```
 $jirassimo.formatDate($issue.fields.created, "dd MMM yyyy HH:mm")
 ```
 
 **Look up a setting value** (e.g., map a user email to a Slack channel):
 
-```text
+```
 $jirassimo.settingValue($issue.fields.customfield_10000)
 ```
 
@@ -109,7 +109,6 @@ $jirassimo.settingValue($issue.fields.customfield_10000)
 The app includes ready-made templates for common use cases accessible from the **Template Wizard** inside the notification editor. Use these as a starting point rather than building from scratch.
 
 Available predefined templates include:
-
 - Basic issue notification
 - Customer request update (JSM)
 - Approval required (JSM)
@@ -137,4 +136,24 @@ Access version data (for version-triggered notifications):
 
 - **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
 - **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
-- [Export Our Apps:](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc) [https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc)
+
+---
+
+## Explore Other RaleyApps
+
+<CardGroup cols={2}>
+  <Card title="Raley Intake Forms" icon="file-lines" href="/apps/raley-intake-forms">
+    Create powerful intake forms directly inside Jira and JSM.
+  </Card>
+  <Card title="Raley Procurement and Quotation" icon="cart-shopping" href="/apps/raley-procurement-and-quotation">
+    Manage purchase orders and sales quotes from within Jira.
+  </Card>
+  <Card title="Raley Bookman" icon="calendar-check" href="/apps/raley-bookman">
+    Asset booking management inside the JSM portal.
+  </Card>
+  <Card title="Raley Favorites" icon="star" href="/apps/raley-favorites">
+    Save and quickly access your most important Jira issues.
+  </Card>
+</CardGroup>
+
+[Browse all RaleyApps on the Atlassian Marketplace →](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc)

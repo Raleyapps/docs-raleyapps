@@ -1,0 +1,147 @@
+---
+title: "Troubleshooting – Raley Bookman"
+description: "Diagnose and fix common issues with Raley Bookman asset bookings in the JSM portal."
+last_reviewed: "2026-05-20"
+---
+
+## Symptom Index
+
+| Symptom | Jump to |
+|---|---|
+| Asset list not showing in the JSM portal | [Assets not appearing in portal](#assets-not-appearing-in-portal) |
+| Booking widget not visible on the request form | [Booking widget missing](#booking-widget-missing) |
+| Conflict error even though the asset looks free | [False conflict errors](#false-conflict-errors) |
+| CRON schedule not restricting booking times | [CRON schedule not working](#cron-schedule-not-working) |
+| Bookman panel not appearing on the Jira issue screen | [Monitoring panel missing](#monitoring-panel-missing) |
+| JSM Assets objects not loading (AQL mode) | [JSM Assets not loading](#jsm-assets-not-loading) |
+
+---
+
+## Assets Not Appearing in Portal
+
+**Symptom:** Customers open the booking request form in the JSM portal but the asset search returns no results or an empty list.
+
+**Likely causes:**
+- The JQL or AQL expression in the request type configuration returns no matching issues/objects
+- The Jira project or issue type referenced in the JQL has been renamed or deleted
+- No assets match the active filter at the time of the request
+
+**Fix:**
+1. Go to **Apps → Raley Bookman** and open the request type configuration
+2. Copy the JQL or AQL expression and test it directly:
+   - JQL: Run it in **Jira → Issues → Advanced search**
+   - AQL: Run it in **Assets → Filter → Advanced AQL**
+3. Confirm the query returns at least one result
+4. If the query is correct but assets still don't appear, check that the issues are not archived or in a Done/Closed status that your JQL doesn't exclude
+
+---
+
+## Booking Widget Missing
+
+**Symptom:** The Raley Bookman widget (asset selector and date picker) does not appear on the JSM customer portal request form.
+
+**Likely causes:**
+- The request type is not mapped to a Bookman configuration
+- The JSM service desk selected in Bookman does not match the portal the customer is using
+- The Raley Bookman app is not enabled for the project
+
+**Fix:**
+1. Go to **Apps → Raley Bookman** and confirm that the request type is listed and mapped to a JQL/AQL filter
+2. Confirm the **Service Desk** selected in the Bookman configuration matches the JSM project where the customer is submitting
+3. Check that Raley Bookman is installed and active under **Jira Settings → Apps → Manage Apps**
+4. Submit a test request yourself from the portal to reproduce the issue
+
+---
+
+## False Conflict Errors
+
+**Symptom:** A booking is rejected as conflicting even though the calendar shows the asset is available for the requested time.
+
+**Likely causes:**
+- A cancelled booking was not properly released — the booking ticket may be in a non-cancelled status that Bookman still treats as active
+- The time zone setting of the Jira instance differs from the time zone the customer is booking in
+- The CRON schedule creates an apparent gap that doesn't align with the customer's selection
+
+**Fix:**
+1. Open the asset's Jira issue and view the **Raley Bookman** panel — check for any existing reservations that overlap the requested time
+2. If you find a conflicting reservation that should be cancelled, open that JSM ticket and cancel it through the portal
+3. If there is genuinely no conflict, contact support with the asset issue key and the requested booking time
+
+---
+
+## CRON Schedule Not Working
+
+**Symptom:** The CRON expression is configured but customers can still select times outside the permitted schedule, or the date picker behaves unexpectedly.
+
+**Likely causes:**
+- The CRON expression uses a format that differs from the expected 5-field standard
+- The configuration was saved but the portal cache has not refreshed
+
+**Fix:**
+1. Go to **Apps → Raley Bookman** and review the CRON expression for the affected request type
+2. Verify the expression uses standard 5-field CRON format: `minute hour day-of-month month day-of-week`
+   - Example for hourly slots 9am–5pm on weekdays: `0 9-17 * * 1-5`
+   - Example for every 30 minutes during business hours: `0,30 9-17 * * 1-5`
+3. Save the configuration and ask the customer to refresh the portal page
+
+---
+
+## Monitoring Panel Missing
+
+**Symptom:** The Raley Bookman reservations panel does not appear on the asset's Jira issue screen.
+
+**Likely causes:**
+- The Jira issue view has not been configured to show the Bookman panel (project screen scheme)
+- The user does not have the required Jira project access to view the issue
+
+**Fix:**
+1. Go to **Project Settings → Screens** and verify the Raley Bookman panel is included in the relevant screen scheme
+2. Confirm the user accessing the issue has at least Browse Projects permission for that project
+3. Try a hard refresh of the Jira issue page (Ctrl+Shift+R / Cmd+Shift+R)
+
+---
+
+## JSM Assets Not Loading
+
+**Symptom:** When using JSM Assets (AQL mode), the asset list fails to load or shows an authentication error.
+
+**Likely causes:**
+- The Atlassian API token configured in Bookman Settings has expired or been revoked
+- The email address associated with the token does not have access to the Assets workspace
+- The JSM subscription does not include Assets (requires Premium or Enterprise)
+
+**Fix:**
+1. Go to **Apps → Raley Bookman → Settings**
+2. Re-enter the Atlassian API token and associated email address — generate a new token at [id.atlassian.com](https://id.atlassian.com) if needed
+3. Confirm the token's account has **Assets Administrator** or read access to the relevant schema
+4. Confirm your JSM subscription includes Assets (Premium or Enterprise tier)
+
+---
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+
+When contacting support, include: your Jira Cloud URL, the affected JSM project key, the request type name, and an example booking date/time that failed.
+
+---
+
+## Explore Other RaleyApps
+
+<CardGroup cols={2}>
+  <Card title="Raley Emails Notifications" icon="envelope" href="/apps/raley-emails-notifications">
+    Send customized emails and Slack notifications from Jira and JSM.
+  </Card>
+  <Card title="Raley Intake Forms" icon="file-lines" href="/apps/raley-intake-forms">
+    Create powerful intake forms directly inside Jira and JSM.
+  </Card>
+  <Card title="Raley Procurement and Quotation" icon="cart-shopping" href="/apps/raley-procurement-and-quotation">
+    Manage purchase orders and sales quotes from within Jira.
+  </Card>
+  <Card title="Raley Favorites" icon="star" href="/apps/raley-favorites">
+    Save and quickly access your most important Jira issues.
+  </Card>
+</CardGroup>
+
+[Browse all RaleyApps on the Atlassian Marketplace →](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc)
