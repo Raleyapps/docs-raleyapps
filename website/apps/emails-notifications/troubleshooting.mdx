@@ -29,6 +29,7 @@ Click **Test Send** and enter your own email address. If you receive it, the con
 **Step 5 — Contact Support**
 
 If none of the above resolves the issue, contact support with:
+
 - Your Jira Cloud URL
 - The notification name
 - An affected issue key
@@ -63,6 +64,7 @@ For JSM projects, if the issue doesn't have a **Request Type** assigned, JSM-spe
 ## Notification Fires but Wrong Recipients Receive It
 
 **Check your destination configuration.** Open the notification and confirm:
+
 - If using a dynamic recipient (e.g., a custom field), verify the field contains a valid email address on the test issue
 - If using Assignee/Reporter, verify the user's Jira account has a confirmed email address
 - If using an external email, confirm it's entered correctly without extra spaces
@@ -74,6 +76,7 @@ For JSM projects, if the issue doesn't have a **Request Type** assigned, JSM-spe
 Errors in Velocity template syntax cause the notification to fail. Check the Send Audit for messages like "Template evaluation error."
 
 Common causes:
+
 - Missing `#end` for every `#if` or `#foreach`
 - Referencing a field that doesn't exist on the issue type (e.g., `$issue.fields.customfield_XXXXX`)
 - Unclosed string literals or mismatched brackets
@@ -86,5 +89,6 @@ Use **Preview** with a real issue key to catch rendering errors before the notif
 
 - **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
 - **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+- [Export Our Apps:](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc) [https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc)
 
 When contacting support, include: your Jira Cloud URL, notification name, an affected issue key, and the approximate date/time the notification failed.

@@ -25,7 +25,7 @@ Any Jira issue can serve as a bookable asset (e.g., meeting rooms, company cars,
 1. Create (or identify) a Jira project and issue type that represents your assets
 2. Create one issue per bookable item (e.g., one issue per meeting room)
 3. Build a **JQL expression** that returns only your bookable assets. Example:
-   ```
+   ```text
    project = Facilities AND issuetype = "Meeting Room"
    ```
 
@@ -51,16 +51,20 @@ Repeat for each category of bookable asset. Each request type maps to a differen
 In the configuration for each request type, you can set:
 
 ### Booking Durations (optional)
+
 Define a list of allowed booking lengths (e.g., 30 minutes, 1 hour, 2 hours). When configured, users select a duration and the "Booking to" time is calculated automatically.
 
 ### Booking Schedule / CRON (optional)
+
 Use a CRON expression to restrict which start times are valid. Examples:
+
 - `0 9-17 * * 1-5` — hourly slots, 9am–5pm, weekdays only
 - `0,30 9-17 * * 1-5` — every 30 minutes during business hours
 
 When both **Booking Durations** and **CRON** are configured, valid bookings must satisfy both rules.
 
 ### No Constraints
+
 If neither Booking Durations nor CRON are configured, customers can select any start and end time.
 
 ## Step 4 — Configure JSM Assets API Access (if using JSM Assets)
@@ -76,9 +80,10 @@ If you're using JSM Assets objects:
 1. Open your JSM customer portal
 2. Submit a test booking request using the configured request type
 3. Confirm the asset selection, date picker, and availability check work correctly
-4. Check that the created JSM ticket shows the booking details
+4. Check that the created JSM ticket shows the booking details\
 
 ## Need Help?
 
 - **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
 - **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+- [Export Our Apps:](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc) [https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc)

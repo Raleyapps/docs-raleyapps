@@ -20,7 +20,7 @@ Servers are located in New York City, US (DigitalOcean and Amazon AWS).
 
 **Who can configure Raley Emails Notifications?**
 
-By default, only users with **ADMINISTER** or **JIRA_ADMIN** permissions can configure notification rules and app settings. You can grant additional Jira user groups access through the app's **Settings** menu.
+By default, only users with **ADMINISTER** or **JIRA\_ADMIN** permissions can configure notification rules and app settings. You can grant additional Jira user groups access through the app's **Settings** menu.
 
 The **Raley issue panel** (for instant/canned notifications) is available to any Jira user who has access to the issue — no admin role required.
 
@@ -57,7 +57,7 @@ Yes. The app includes predefined customer email notification templates and a **T
 
 Use the `$jirassimo.formatDate()` helper with your preferred format pattern. Example:
 
-```
+```text
 $jirassimo.formatDate($issue.fields.created, "dd MMM yy hh:mm")
 ```
 
@@ -65,7 +65,7 @@ $jirassimo.formatDate($issue.fields.created, "dd MMM yy hh:mm")
 
 Create email-to-Slack channel bindings in **Settings** as key=value pairs (one per line). Then resolve them in your template:
 
-```
+```text
 $jirassimo.settingValue($issue.fields.customfield_10000)
 ```
 
@@ -99,3 +99,4 @@ For step-by-step diagnosis, see [Troubleshooting](/apps/emails-notifications/tro
 
 - **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
 - **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+- [Export Our Apps:](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc) [https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc)
