@@ -1,0 +1,214 @@
+{
+  "theme": "sequoia",
+  "name": "RaleyApps Docs",
+  "colors": {
+    "primary": "#1570EF",
+    "light": "#53B1FD",
+    "dark": "#1849A9"
+  },
+  "favicon": {
+    "light": "/favicon.svg",
+    "dark": "/favicon.svg"
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "footer": {
+    "socials": {}
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Welcome",
+        "pages": [
+          "introduction",
+          "changelog"
+        ]
+      },
+      {
+        "group": "Raley Emails Notifications",
+        "pages": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "apps/emails-notifications/getting-started"
+            ]
+          },
+          {
+            "group": "About the App",
+            "pages": [
+              "apps/raley-emails-notifications",
+              "apps/emails-notifications/features",
+              "apps/emails-notifications/cloud-vs-server",
+              "apps/emails-notifications/vs-jira-notifications"
+            ]
+          },
+          "apps/untitled-page",
+          {
+            "group": "Templates",
+            "pages": [
+              "apps/emails-notifications/templating"
+            ]
+          },
+          {
+            "group": "How to Use",
+            "pages": [
+              "apps/emails-notifications/tutorials",
+              "apps/emails-notifications/monitoring"
+            ]
+          },
+          {
+            "group": "Use Cases",
+            "pages": [
+              "apps/emails-notifications/cookbook"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "apps/emails-notifications/troubleshooting"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "apps/emails-notifications/faq",
+              "apps/emails-notifications/security-2021"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Raley Intake Forms",
+        "pages": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "apps/intake-forms/getting-started"
+            ]
+          },
+          {
+            "group": "About the App",
+            "pages": [
+              "apps/raley-intake-forms",
+              "apps/intake-forms/introduction"
+            ]
+          },
+          {
+            "group": "How to Use",
+            "pages": [
+              "apps/intake-forms/cookbook"
+            ]
+          },
+          {
+            "group": "Use Cases",
+            "pages": [
+              "apps/intake-forms/advantages-over-issue-collector",
+              "apps/intake-forms/vs-jira-cloud-forms"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "apps/intake-forms/faq"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Raley Procurement and Quotation",
+        "pages": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "apps/raley-procurement-and-quotation",
+              "apps/procurement/purchase-orders",
+              "apps/procurement/sales-quotes"
+            ]
+          },
+          {
+            "group": "How to Use",
+            "pages": [
+              "apps/procurement/managing-suppliers-and-products",
+              "apps/procurement/importing-products-from-csv",
+              "apps/procurement/currency-management",
+              "apps/procurement/tax-management",
+              "apps/procurement/discounts",
+              "apps/procurement/order-line-custom-fields",
+              "apps/procurement/contact-person-and-address"
+            ]
+          },
+          {
+            "group": "Use Cases",
+            "pages": [
+              "apps/procurement/api-and-integrations"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "apps/procurement/troubleshooting"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "apps/procurement/security-2021",
+              "apps/procurement/security-2022"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Raley Bookman",
+        "pages": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "apps/raley-bookman",
+              "apps/bookman/configuration"
+            ]
+          },
+          {
+            "group": "About the App",
+            "pages": [
+              "apps/bookman/features"
+            ]
+          },
+          {
+            "group": "How to Use",
+            "pages": [
+              "apps/bookman/making-bookings",
+              "apps/bookman/asset-bookings-monitoring"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "apps/bookman/application-scopes"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Raley Favorites",
+        "pages": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "apps/raley-favorites"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Policies",
+        "pages": [
+          "policies/service-level-agreement",
+          "policies/data-security-and-privacy"
+        ]
+      }
+    ]
+  }
+}
