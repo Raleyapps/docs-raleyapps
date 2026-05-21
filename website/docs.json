@@ -44,7 +44,6 @@
               "apps/emails-notifications/vs-jira-notifications"
             ]
           },
-          "apps/untitled-page",
           {
             "group": "Templates",
             "pages": [
