@@ -1,0 +1,105 @@
+---
+title: "Raley Procurement for Jira & JSM app"
+description: "Overview of Raley Procurement for Jira & JSM: manage suppliers, purchase orders, approvals, budgets, and customer sales quotes from inside Jira and JSM."
+last_reviewed: "2026-05-19"
+---
+
+## Overview
+
+Raley Procurement for Jira & JSM brings full procurement and quoting workflows into Jira and JSM — so your team can generate POs, manage suppliers, and track approvals without switching tools.
+
+## How It Works
+
+The app runs as an Atlassian Connect cloud add-on, which means it connects to your Jira instance through Atlassian's official app framework — no direct database access, no server-side code running inside your Jira.
+
+```text
+Your team in Jira
+       ↓
+Raley Procurement app (Atlassian Connect)
+       ↓
+Raley AppServer (DigitalCloud + AWS, Amsterdam / USA)
+       ↓
+Jira REST API  ←→  Your Jira project data
+```
+
+**What this means in practice:**
+
+- PO and quote data is stored on Raley's servers (DigitalCloud / AWS) — not inside Jira itself
+- All communication between the app and Jira uses SSL and JWT token authentication
+- Jira user permissions are checked for every action — the app cannot bypass your Jira project roles
+- Data is retained for 60 days after uninstall, then permanently deleted
+
+For the full data and privacy breakdown, see [Data Security and Privacy](/policies/data-security-and-privacy).
+
+## Main Sections
+
+<CardGroup cols={2}>
+  <Card title="Sales Quotes" icon="file-invoice-dollar">
+    Create, manage, and send quotes to customers directly from Jira.
+  </Card>
+
+  <Card title="Purchase Orders" icon="cart-shopping">
+    Generate and track purchase orders, approvals, and order lines from within Jira.
+  </Card>
+</CardGroup>
+
+## What You Can Configure
+
+### Suppliers & Products
+
+- Add and manage your supplier database
+- Import products in bulk via **CSV upload**
+- Set up product catalogs with pricing and tax rules
+
+### Financials
+
+- Configure **multi-currency** support
+- Define **tax rules** for different regions or categories
+- Apply **discounts** at the order or line level
+
+### Order Customization
+
+- Add **custom fields** to order lines
+- Configure **contact persons** and delivery addresses per order
+- Set up **approval workflows** for purchase requests
+
+### Integrations
+
+- Connect via **API** for external system integration
+- Review **security vulnerability release notes** (2021–2022)
+
+## Getting Started
+
+1. Install Raley Procurement for Jira & JSM from the [Atlassian Marketplace](https://marketplace.atlassian.com)
+2. Configure your suppliers and product catalog
+3. Set up your approval workflow in Jira
+4. Create your first purchase order or sales quote
+
+## Support
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+
+---
+
+## Explore Other RaleyApps
+
+<CardGroup cols={2}>
+  <Card title="Raley Emails Notifications" icon="envelope" href="/apps/raley-emails-notifications">
+    Send customized emails and Slack notifications from Jira and JSM.
+  </Card>
+
+  <Card title="Raley Intake Forms" icon="file-lines" href="/apps/raley-intake-forms">
+    Create powerful intake forms directly inside Jira and JSM.
+  </Card>
+
+  <Card title="Raley Bookman" icon="calendar-check" href="/apps/raley-bookman">
+    Asset booking management inside the JSM portal.
+  </Card>
+
+  <Card title="Raley Favorites" icon="star" href="/apps/raley-favorites">
+    Save and quickly access your most important Jira issues.
+  </Card>
+</CardGroup>
+
+[Browse all RaleyApps on the Atlassian Marketplace →](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc?utm_source=mintify&utm_medium=productdocs&utm_campaign=footage&utm_term=&utm_content=)

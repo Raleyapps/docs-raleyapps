@@ -4,7 +4,7 @@ description: "How RaleyApps add-ons for Jira and JSM access, process, store, and
 last_reviewed: "2026-05-19"
 ---
 
-This statement describes the data access, handling, and storage practices for all Raley add-ons. *Effective: November 4, 2022.*
+This statement describes the data access, handling, and storage practices for all Raley add-ons. _Effective: November 4, 2022._
 
 ## Hosting Infrastructure
 
@@ -21,14 +21,16 @@ All cloud-hosted systems run on **DigitalOcean** and **Amazon AWS** servers loca
 
 ### Raley Emails Notifications
 
-**Permissions:** READ, WRITE, ADMIN, ACCESS_EMAIL_ADDRESSES
+**Permissions:** READ, WRITE, ADMIN, ACCESS\_EMAIL\_ADDRESSES
 
 **What it reads:**
+
 - Jira issues, projects, and versions
 - User data and email addresses from Jira groups and accounts
 
 **What it stores:**
-- Configuration data (including SMTP, Slack, or HipChat credentials if configured) — backed up for 30+ days
+
+- Configuration data (including SMTP, Slack, or HipChat credentials if configured) — backed up for 30\+ days
 - When audit is enabled: writes a copy of sent notifications as private issue comments
 - Does **not** persistently store the details of your Jira issues, projects, or versions
 
@@ -41,25 +43,28 @@ All cloud-hosted systems run on **DigitalOcean** and **Amazon AWS** servers loca
 **Permissions:** READ, WRITE, ADMIN
 
 **What it does:**
+
 - Reads issue and project metadata to build forms
 - Creates Jira issues and JSM customers from form submissions
 
 **What it stores:**
+
 - Does **not** store submitted form data
 - All iframe rendering is HTTPS-protected
 - Communications secured via SSL and JWT
-- Configuration backed up for 30+ days
+- Configuration backed up for 30\+ days
 
 ---
 
-### Raley Procurement and Quotation
+### Raley Procurement for Jira & JSM
 
-**Permissions:** READ, WRITE, ADMIN, ACCESS_EMAIL_ADDRESSES
+**Permissions:** READ, WRITE, ADMIN, ACCESS\_EMAIL\_ADDRESSES
 
 **What it stores:**
+
 - Workflow statuses, project keys, issue keys, and quantitative PO data (line amounts, summaries)
 - Does **not** store private user information
-- Configuration backed up for 30+ days
+- Configuration backed up for 30\+ days
 
 ---
 
@@ -70,9 +75,10 @@ All cloud-hosted systems run on **DigitalOcean** and **Amazon AWS** servers loca
 **What it reads:** Jira issues matching configured JQL queries; JSM Assets workspace information
 
 **What it stores:**
+
 - App-specific booking attributes attached to Jira issues/JSM requests
 - Does **not** store private user information
-- 30+ day backup retention
+- 30\+ day backup retention
 
 ---
 
@@ -83,6 +89,7 @@ All cloud-hosted systems run on **DigitalOcean** and **Amazon AWS** servers loca
 **Permissions:** READ and WRITE access to issues, attachments, projects, and users on the host Jira server.
 
 **What it stores:**
+
 - All configuration is stored locally on your Jira server — no data is transmitted to external systems or third parties
 - RaleyApps does not collect installation data from server instances
 - Disaster recovery relies on your Jira server's own database backup

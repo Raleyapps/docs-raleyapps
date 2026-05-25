@@ -116,12 +116,12 @@
         ]
       },
       {
-        "group": "Raley Procurement and Quotation",
+        "group": "Raley Procurement for Jira & JSM",
         "pages": [
           {
             "group": "Getting Started",
             "pages": [
-              "apps/raley-procurement-and-quotation",
+              "apps/raley-procurement-jira-jsm",
               "apps/procurement/purchase-orders",
               "apps/procurement/sales-quotes"
             ]
@@ -209,5 +209,12 @@
         ]
       }
     ]
-  }
+  },
+  "redirects": [
+    {
+      "source": "/apps/raley-procurement-and-quotation",
+      "destination": "/apps/raley-procurement-jira-jsm",
+      "permanent": true
+    }
+  ]
 }
