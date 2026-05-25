@@ -1,0 +1,10 @@
+# Agent / editor config (not part of the docs site)
+.claude/
+
+# Microsoft Office lock & temp files
+~$*
+*.tmp
+
+# OS cruft
+.DS_Store
+Thumbs.db
