@@ -123,7 +123,8 @@
             "pages": [
               "apps/raley-procurement-jira-jsm",
               "apps/procurement/purchase-orders",
-              "apps/procurement/sales-quotes"
+              "apps/procurement/sales-quotes",
+              "apps/procurement/getting-started"
             ]
           },
           {
@@ -135,7 +136,11 @@
               "apps/procurement/tax-management",
               "apps/procurement/discounts",
               "apps/procurement/order-line-custom-fields",
-              "apps/procurement/contact-person-and-address"
+              "apps/procurement/contact-person-and-address",
+              "apps/procurement/user-roles",
+              "apps/procurement/status-definitions",
+              "apps/procurement/approval-workflows",
+              "apps/procurement/goods-receipt"
             ]
           },
           {

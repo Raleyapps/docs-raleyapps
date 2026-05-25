@@ -1,12 +1,12 @@
 ---
-title: "Raley Purchase Orders REST API and integrations"
-description: "Integrate Raley Purchase Orders with ERP, accounting, and procurement systems using the REST API to sync suppliers, products, orders, and approval status."
+title: "Raley Procurement for Jira & JSM REST API and integrations"
+description: "Integrate Raley Procurement for Jira & JSM with ERP, accounting, and procurement systems using the REST API to sync suppliers, products, orders, and approval status."
 last_reviewed: "2026-05-19"
 ---
 
 ## Overview
 
-Raley Purchase Orders provides a REST API for B2B integration with third-party systems — such as ERP platforms, accounting tools, or custom internal applications.
+Raley Procurement for Jira & JSM provides a REST API for B2B integration with third-party systems — such as ERP platforms, accounting tools, or custom internal applications.
 
 **Base URL:** `https://po.raleyapps.com/`
 
@@ -15,6 +15,7 @@ Raley Purchase Orders provides a REST API for B2B integration with third-party s
 All API requests require an **API Key** passed in the `Authorization` HTTP header.
 
 To get your API key:
+
 1. Open the Raley Apps configuration page in your Jira project
 2. Go to the **API & Integrations** tab
 3. Copy your key — or click **Regenerate** to create a new one
@@ -24,7 +25,7 @@ To get your API key:
 ### Suppliers
 
 | Method | Endpoint | Description |
-|---|---|---|
+| --- | --- | --- |
 | `GET` | `api/v1/external/get-suppliers` | List all configured suppliers |
 | `POST` | `api/v1/external/create-supplier` | Create a new supplier |
 | `PUT` | `api/v1/external/update-supplier` | Update an existing supplier |
@@ -32,7 +33,7 @@ To get your API key:
 ### Products
 
 | Method | Endpoint | Description |
-|---|---|---|
+| --- | --- | --- |
 | `GET` | `api/v1/external/find-products-by-sku?sku=SKU_VALUE` | Find a product by SKU |
 | `POST` | `api/v1/external/create-product` | Create a new product |
 | `PUT` | `api/v1/external/update-product` | Update an existing product |
@@ -40,13 +41,13 @@ To get your API key:
 ### Taxes
 
 | Method | Endpoint | Description |
-|---|---|---|
+| --- | --- | --- |
 | `GET` | `api/v1/external/get-taxes` | List all configured tax rates |
 
 ### Purchase Orders
 
 | Method | Endpoint | Description |
-|---|---|---|
+| --- | --- | --- |
 | `GET` | `api/v1/external/order-data?issueKey=MY_ISSUE_KEY` | Get details of a specific purchase order |
 
 ## Notes
@@ -67,12 +68,15 @@ To get your API key:
   <Card title="Raley Emails Notifications" icon="envelope" href="/apps/raley-emails-notifications">
     Send customized emails and Slack notifications from Jira and JSM.
   </Card>
+
   <Card title="Raley Intake Forms" icon="file-lines" href="/apps/raley-intake-forms">
     Create powerful intake forms directly inside Jira and JSM.
   </Card>
+
   <Card title="Raley Bookman" icon="calendar-check" href="/apps/raley-bookman">
     Asset booking management inside the JSM portal.
   </Card>
+
   <Card title="Raley Favorites" icon="star" href="/apps/raley-favorites">
     Save and quickly access your most important Jira issues.
   </Card>

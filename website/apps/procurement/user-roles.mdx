@@ -1,0 +1,56 @@
+---
+title: "User roles and permissions in Raley Procurement"
+description: "Understand the Finance, Approval, and Viewer roles in Raley Procurement for Jira & JSM, what each can do, and how to assign them in your Jira project."
+---
+
+## Overview
+
+Raley Procurement for Jira & JSM uses app-level roles to control who can configure, create, approve, and view purchase orders within a Jira project. Roles are assigned per project.
+
+## Roles
+
+| Role | What it can do |
+| --- | --- |
+| **Finance** | Configure the app (currency, taxes, suppliers, products) and create and manage purchase orders. Required for most setup and creation tasks. |
+| **Approval** | Review and approve or reject purchase orders that have been submitted for approval. |
+| **Viewer** | Read-only access to purchase orders and related data. |
+
+## Assigning Roles
+
+1. Open **Project Settings** in your Jira project
+2. Go to **Purchase Orders → User Roles**
+3. Assign each user or group to the appropriate role
+
+## Important Notes
+
+- If no app-level roles are configured, all project members default to full access. Assign explicit roles to restrict access.
+- Users with the **Jira Project Administrator** role bypass app-level restrictions by design. Limit this role in **Project Settings → People** where needed.
+
+## Need Help?
+
+- **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
+- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+
+---
+
+## Explore Other RaleyApps
+
+<CardGroup cols={2}>
+  <Card title="Raley Emails Notifications" icon="envelope" href="/apps/raley-emails-notifications">
+    Send customized emails and Slack notifications from Jira and JSM.
+  </Card>
+
+  <Card title="Raley Intake Forms" icon="file-lines" href="/apps/raley-intake-forms">
+    Create powerful intake forms directly inside Jira and JSM.
+  </Card>
+
+  <Card title="Raley Bookman" icon="calendar-check" href="/apps/raley-bookman">
+    Asset booking management inside the JSM portal.
+  </Card>
+
+  <Card title="Raley Favorites" icon="star" href="/apps/raley-favorites">
+    Save and quickly access your most important Jira issues.
+  </Card>
+</CardGroup>
+
+[Browse all RaleyApps on the Atlassian Marketplace →](https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc?utm_source=mintify&utm_medium=productdocs&utm_campaign=footage&utm_term=&utm_content=)

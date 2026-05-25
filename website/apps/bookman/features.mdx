@@ -7,41 +7,54 @@ last_reviewed: "2026-05-19"
 ## Feature List
 
 ### JSM Portal Bookings
+
 Customers and employees make bookings directly through the JSM customer portal — **no Jira license required** for the person making the booking.
 
 ### Dual Asset Support
+
 Works with both asset types:
+
 - **Jira work items** — any Jira issue used to represent a bookable resource (meeting room, vehicle, equipment)
 - **JSM Assets** — objects from the JSM Assets schema (requires JSM Premium or Enterprise)
 
 ### JQL / AQL Asset Filtering
+
 Use JQL (for Jira work items) or AQL (for JSM Assets) to precisely define which assets are available for booking in each request type. Example: `project = Facilities AND issuetype = "Meeting Room"`.
 
 ### Double-Booking Prevention
+
 The system automatically checks for conflicts when a booking is submitted. If the asset is already reserved for the requested time slot, the user is notified and cannot proceed.
 
 ### CRON-Based Booking Schedule
+
 Define permitted booking start times using CRON expressions. For example: allow bookings only on the hour during business hours, or at 30-minute intervals excluding lunch.
 
 ### Custom Booking Intervals
+
 Set the minimum and maximum booking duration per asset type — from 1 minute to 1 month.
 
 ### Calendar and List Views
+
 Users and agents can view existing bookings in two modes:
+
 - **Calendar view** — visual timeline showing reserved and available slots, highlighted in red
 - **List view** — tabular view with booking details and links to the corresponding JSM tickets
 
 ### Asset Availability from Jira
+
 JSM agents and Jira users can see all current reservations for an asset directly from the asset's Jira work item screen — without switching to the portal.
 
 ### Self-Service Management
+
 Customers can:
+
 - Make new booking requests through the JSM portal
 - Cancel their own booking requests
 
 ### Secure Data Handling
+
 - Booking data stored securely; no private user information retained
-- 30+ day backup retention
+- 30\+ day backup retention
 - All permissions comply with Atlassian Connect security requirements
 
 ## Need Help?
@@ -57,12 +70,15 @@ Customers can:
   <Card title="Raley Emails Notifications" icon="envelope" href="/apps/raley-emails-notifications">
     Send customized emails and Slack notifications from Jira and JSM.
   </Card>
+
   <Card title="Raley Intake Forms" icon="file-lines" href="/apps/raley-intake-forms">
     Create powerful intake forms directly inside Jira and JSM.
   </Card>
-  <Card title="Raley Procurement and Quotation" icon="cart-shopping" href="/apps/raley-procurement-and-quotation">
+
+  <Card title="Raley Procurement for Jira & JSM" icon="cart-shopping" href="/apps/raley-procurement-and-quotation">
     Manage purchase orders and sales quotes from within Jira.
   </Card>
+
   <Card title="Raley Favorites" icon="star" href="/apps/raley-favorites">
     Save and quickly access your most important Jira issues.
   </Card>

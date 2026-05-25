@@ -17,14 +17,14 @@ Your team in Jira
        ↓
 Raley Procurement app (Atlassian Connect)
        ↓
-Raley AppServer (DigitalCloud + AWS, Amsterdam / USA)
+Raley AppServer (DigitalOcean + AWS, Amsterdam / USA)
        ↓
 Jira REST API  ←→  Your Jira project data
 ```
 
 **What this means in practice:**
 
-- PO and quote data is stored on Raley's servers (DigitalCloud / AWS) — not inside Jira itself
+- PO and quote data is stored on Raley's servers (DigitalOcean / AWS) — not inside Jira itself
 - All communication between the app and Jira uses SSL and JWT token authentication
 - Jira user permissions are checked for every action — the app cannot bypass your Jira project roles
 - Data is retained for 60 days after uninstall, then permanently deleted

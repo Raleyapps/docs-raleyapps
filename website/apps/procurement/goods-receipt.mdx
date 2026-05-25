@@ -1,35 +1,25 @@
 ---
-title: "Configure tax rates for purchase orders in Jira"
-description: "Define multiple tax rates such as VAT or sales tax in Raley Procurement for Jira & JSM, set the default rate, and apply taxes automatically to products and order lines."
+title: "Record goods receipt on purchase orders"
+description: "Record full or partial delivery of ordered items against an approved purchase order in Raley Procurement for Jira & JSM."
 ---
 
 ## Overview
 
-Raley Procurement for Jira & JSM lets you define multiple tax rates and assign one as the default. Tax rates are applied to products and automatically used when creating new order lines.
+When ordered items arrive, record their receipt against the approved purchase order. Partial deliveries are supported.
 
-**Required role:** Finance
+## Recording Receipt
 
-## How to Configure Taxes
+1. Open the approved purchase order
+2. Click **Receive Goods**
+3. Enter the quantities received for each order line — partial receipts are supported
+4. Click **Save**
 
-1. Go to **Projects** → **View All Projects**
-2. Select your PO project
-3. Go to **Purchase Orders – Settings**
-4. Click the **Tax** tab
-5. Click **Add new Tax**
-6. Enter the tax name and rate (e.g., VAT 20%)
-7. Mark one tax as the **default**
+The received quantities are recorded and the purchase order status updates accordingly.
 
-## Default Tax Requirement
+## Related
 
-<Warning>
-  Exactly one tax must be set as the default. The system will not function correctly without a default tax configured.
-</Warning>
-
-The default tax is automatically applied in these situations:
-
-- When importing products via CSV file
-- When adding products manually through the Suppliers / Products interface
-- When adding purchase order lines on the fly
+- [Create and manage purchase orders](/apps/procurement/purchase-orders)
+- [Purchase order status definitions](/apps/procurement/status-definitions)
 
 ## Need Help?
 
