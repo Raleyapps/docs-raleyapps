@@ -6,41 +6,36 @@ last_reviewed: "2026-05-19"
 
 ## Overview
 
-Raley Procurement for Jira & JSM brings full procurement and quoting workflows into Jira and JSM — so your team can generate POs, manage suppliers, and track approvals without switching tools.
+Raley Procurement for Jira & JSM brings intake-to-procure experience into Jira and JSM — so your business team can create purchase requests, run the approvals, generate purchase orders, track deliveries and much more without switching tools.
 
 ## How It Works
 
-The app runs as an Atlassian Connect cloud add-on, which means it connects to your Jira instance through Atlassian's official app framework — no direct database access, no server-side code running inside your Jira.
+Our app is an [Atlassian Forge](https://developer.atlassian.com/platform/forge/) cloud app, which lives next to your host product (Jira or JSM) and extends your work-item experience by serving a separate screen (IFrame), to capture, validate and run procurement-related process which is based on a Jira or a JSM ticket.
 
 ```text
-Your team in Jira
+Your team in Jira / JSM (submits procurement request as a work-item)
        ↓
-Raley Procurement app (Atlassian Connect)
+Raley Procurement app (handles data intake, calculations, approvals routing, po-generation etc)
        ↓
-Raley AppServer (DigitalCloud + AWS, Amsterdam / USA)
+Raley AppServer remotes (handles complex data processing)
        ↓
-Jira REST API  ←→  Your Jira project data
+Jira/JSM: procurement workflow, user management, supplementary data intake.
 ```
 
 **What this means in practice:**
 
-- PO and quote data is stored on Raley's servers (DigitalCloud / AWS) — not inside Jira itself
-- All communication between the app and Jira uses SSL and JWT token authentication
-- Jira user permissions are checked for every action — the app cannot bypass your Jira project roles
+- The app works with both: JSM and Jira
+- Purchase request data is stored in Jira/JSM work-item as well as in Raley (line-item level data)
+- All communication between the app and Atlassian uses SSL and FIT/JWT token authentication
+- A purchase request is represented by a single work-item with your own custom workflow.
+- On approval of purchase request it becomes a purchase order with PDF which stays in the same work-item
+- Deliveries are tracked within the same work-item
+- No user-private data is collected
 - Data is retained for 60 days after uninstall, then permanently deleted
 
 For the full data and privacy breakdown, see [Data Security and Privacy](/policies/data-security-and-privacy).
 
-## Main Sections
-
 <CardGroup cols={2}>
-  <Card title="Sales Quotes" icon="file-invoice-dollar">
-    Create, manage, and send quotes to customers directly from Jira.
-  </Card>
-
-  <Card title="Purchase Orders" icon="cart-shopping">
-    Generate and track purchase orders, approvals, and order lines from within Jira.
-  </Card>
 </CardGroup>
 
 ## What You Can Configure
@@ -56,6 +51,7 @@ For the full data and privacy breakdown, see [Data Security and Privacy](/polici
 - Configure **multi-currency** support
 - Define **tax rules** for different regions or categories
 - Apply **discounts** at the order or line level
+- Clear hand off to ERP after granting approval
 
 ### Order Customization
 
@@ -66,19 +62,18 @@ For the full data and privacy breakdown, see [Data Security and Privacy](/polici
 ### Integrations
 
 - Connect via **API** for external system integration
-- Review **security vulnerability release notes** (2021–2022)
 
 ## Getting Started
 
 1. Install Raley Procurement for Jira & JSM from the [Atlassian Marketplace](https://marketplace.atlassian.com)
-2. Configure your suppliers and product catalog
-3. Set up your approval workflow in Jira
-4. Create your first purchase order or sales quote
+2. Set up your approval workflow in Jira
+3. Configure your suppliers and product catalog
+4. Create your first purchase order 
 
 ## Support
 
 - **Service Portal:** [inversionpoint.atlassian.net/servicedesk](https://inversionpoint.atlassian.net/servicedesk/customer/portal/3)
-- **Email:** [support@raleyapps.com](mailto:support@raleyapps.com)
+- **Email:** [help@raleyapps.com](mailto:support@raleyapps.com)
 
 ---
 
