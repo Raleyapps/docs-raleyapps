@@ -1,0 +1,149 @@
+---
+title: "Application scopes: every Atlassian permission the 5 Raley apps request, listed per app"
+sidebarTitle: "Application scopes"
+keywords: ["atlassian app permissions", "jira app scopes", "atlassian connect scopes", "act as user scope", "marketplace privacy and security tab", "raley app permissions", "app storage service"]
+mode: "wide"
+description: "Every permission each of the 5 Raley apps requests on the Atlassian Marketplace, listed verbatim per app, with what the app does with that access."
+last_reviewed: "2026-08-19"
+---
+
+{/* Page settings: Path: policies/application-scopes | OG image: blank (auto) | Tag: none | Redirect: none */}
+
+This page lists every permission each Raley app requests from your Atlassian site, app by app. The lists are copied verbatim from each app's Atlassian Marketplace listing (Privacy & Security tab) on August 19, 2026. Permission lists belong to a specific app version, so the listing is always the authoritative source: each section below links to the live tab so you can verify today's list in one click.
+
+## How to read this page
+
+- A permission is what a Jira admin sees and grants when installing the app. It is a declared ceiling, not a log of activity: the list shows the most access the app can request.
+- Our listings show permissions in 2 formats. Some apps declare classic site-wide scopes such as Read, Write, and Admin, which Atlassian defines in its [scopes documentation](https://developer.atlassian.com/cloud/jira/platform/scopes-for-connect-apps/). Others declare granular permission statements that describe one capability each. The format follows from how the app integrates with Atlassian; the [platforms concepts page](/how-raley-apps-run-on-atlassian#which-platform-each-raley-app-uses) explains the difference.
+- This page covers access permissions only. For where data is hosted, encrypted, and processed, see the [data security and privacy statement](/policies/data-security-and-privacy).
+
+## Raley Email Notifications for Jira & JSM
+
+Email Notifications declares 18 granular permissions. Verify the live list on the [Marketplace Privacy & Security tab](https://marketplace.atlassian.com/apps/1214045/raley-email-notifications-for-jira-jsm?hosting=cloud&tab=privacy-and-security&ref=docs.raleyapps.com&utm_source=docs&utm_medium=productdocs&utm_campaign=application-scopes&utm_content=raley-email-notifications).
+
+**Read access**
+
+- View user information in Jira that the user has access to, including usernames, email addresses, and avatars.
+- View user groups.
+- View email addresses of all users regardless of the user's profile visibility settings.
+- Read Jira project and issue data, search for issues, and objects associated with issues like attachments and worklogs.
+- View project properties.
+- Read customer request data, including approvals, attachments, comments, request participants, and status/transitions. Read service desk and request types, including searching for request types and reading request type fields, properties and groups.
+- Read Assets objects, their attributes values and details.
+- Read Assets object types and their attributes.
+- Get list of all Assets object type attributes for a schema or an object type.
+- Get list of or details of individual schemas in Assets.
+
+**Write access**
+
+- Create and edit issues in Jira, post comments as the user, create worklogs, and delete issues.
+- Create and update project properties.
+- Create and edit customer requests, including add comments and attachments, approve, share (add request participants), subscribe, and transition.
+
+**Administration**
+
+- Take Jira administration actions (e.g. create projects and custom fields, view workflows, manage issue link types).
+- Create, manage and delete customers and organizations. Add and remove customers and organizations from service desks.
+
+**App runtime**
+
+- Access and interact with your data from outside of Atlassian.
+- Access and interact with your data as the logged-in user from outside of Atlassian.
+- Read and write to app storage service.
+
+### What Email Notifications uses this access for
+
+Per the permissions justification published on the listing:
+
+| Access | Used for |
+| --- | --- |
+| Read | Reading issues, projects, and versions from your Jira to build notifications. |
+| Write | Adding a comment to an issue when **Audit enabled** is turned on for a notification. The comment body is the text of the notification sent for that issue. |
+| Admin | Reading Jira user data and retrieving email addresses of members of specific Jira groups. |
+| Email addresses | Retrieving email addresses for accounts in your Jira so notifications can reach them. |
+| Act on behalf of a user | Approving or declining JSM tickets from a notification. |
+| Delete | Deleting issue properties to manage the app's UI state. Issues themselves are not deleted. |
+
+## Raley Intake Forms for Jira & JSM
+
+Intake Forms declares the 6 classic site-wide scopes. Verify the live list on the [Marketplace Privacy & Security tab](https://marketplace.atlassian.com/apps/1217327/raley-intake-forms-for-jira?hosting=cloud&tab=privacy-and-security&ref=docs.raleyapps.com&utm_source=docs&utm_medium=productdocs&utm_campaign=application-scopes&utm_content=raley-intake-forms).
+
+| Scope | As shown on the listing |
+| --- | --- |
+| Read | Read data from the host application |
+| Write | Write data to the host application |
+| Delete | Delete data from the host application |
+| Project admin | Administer Jira projects |
+| Admin | Administer the host application |
+| Act as user | Act on a user's behalf, even when the user is offline |
+
+In practice, Intake Forms reads issue and project metadata needed to create issues, creates issues (with attachments) from form submissions, and creates customers in JSM. The scope-by-scope breakdown lives in the [data security and privacy statement](/policies/data-security-and-privacy).
+
+## Raley Procurement - Intake & Approval Orchestration for JSM
+
+Procurement declares 4 site-wide scopes. Verify the live list on the [Marketplace Privacy & Security tab](https://marketplace.atlassian.com/apps/1223409/raley-procurement-intake-approval-orchestration-for-jsm?hosting=cloud&tab=privacy-and-security&ref=docs.raleyapps.com&utm_source=docs&utm_medium=productdocs&utm_campaign=application-scopes&utm_content=raley-procurement).
+
+| Scope | As shown on the listing | What Procurement uses it for |
+| --- | --- | --- |
+| Read | View, browse, and read information from Jira. | Reading issue-related information to create and manage the purchasing workflow. |
+| Write | Create or edit content in Jira, but not delete content. | Transitioning issues through the workflow. |
+| Admin | Administer the Jira site. | Reading project and workflow information to manage PO statuses, and reading Jira user information to handle your organization structure and user rights. |
+| Email addresses | Get the email addresses of users. | Sending email notifications to Jira users when their approval of a purchase order is needed. |
+
+## Raley Bookman - Asset Reservation for JSM
+
+Bookman declares 13 granular permissions. Verify the live list on the [Marketplace Privacy & Security tab](https://marketplace.atlassian.com/apps/1237483/raley-bookman-assets-reservation-for-jsm?hosting=cloud&tab=privacy-and-security&ref=docs.raleyapps.com&utm_source=docs&utm_medium=productdocs&utm_campaign=application-scopes&utm_content=raley-bookman).
+
+**Read access**
+
+- Read Assets objects, their attributes values and details.
+- Read Assets object types and their attributes.
+- Get list of all Assets object type attributes for a schema or an object type.
+- Get list of or details of individual schemas in Assets.
+- View user information in Jira that the user has access to, including usernames, email addresses, and avatars.
+- Read Jira project and issue data, search for issues, and objects associated with issues like attachments and worklogs.
+- Read customer request data, including approvals, attachments, comments, request participants, and status/transitions. Read service desk and request types, including searching for request types and reading request type fields, properties and groups.
+
+**Write access**
+
+- Create and edit issues in Jira, post comments as the user, create worklogs, and delete issues.
+- Create and edit customer requests, including add comments and attachments, approve, share (add request participants), subscribe, and transition.
+
+**Administration**
+
+- Take Jira administration actions (e.g. create projects and custom fields, view workflows, manage issue link types).
+
+**App runtime**
+
+- Access and interact with your data from outside of Atlassian.
+- Access and interact with your data as the logged-in user from outside of Atlassian.
+- Read and write to app storage service.
+
+The permission list mirrors the app's job: Bookman reads your Assets schemas and objects to show what can be reserved, reads and writes JSM requests and Jira issues to handle reservations, and keeps its own data in the Atlassian app storage service.
+
+## Raley Favourites for Jira
+
+Favourites declares 3 permissions, the smallest footprint of the 5 apps. Verify the live list on the [Marketplace Privacy & Security tab](https://marketplace.atlassian.com/apps/1220204/raley-favourites-for-jira?hosting=cloud&tab=privacy-and-security&ref=docs.raleyapps.com&utm_source=docs&utm_medium=productdocs&utm_campaign=application-scopes&utm_content=raley-favourites).
+
+| Permission | What Favourites uses it for |
+| --- | --- |
+| Read Jira project and issue data, search for issues, and objects associated with issues like attachments and worklogs. | Reading the issues behind the issue keys you starred, to show your favourites list. |
+| Read and write to app storage service. | Storing your starred issue IDs (numeric values only) in Atlassian's app storage. |
+| Create and edit issues in Jira, post comments as the user, create worklogs, and delete issues. | Declared, but not used to change your data. Per the published justification, no issue is updated or modified in any way. |
+
+Per the listing justification, no data leaves the Atlassian platform: the app stores only issue IDs, and only in Atlassian storage.
+
+## When permission lists change
+
+Permission lists belong to app versions, and the Marketplace listing always shows the list for the latest version. This page is reviewed against the listings on the date in the footer; if the two ever disagree, the listing wins.
+
+## What this page does not answer
+
+- Where data is hosted, encrypted, and processed, and GDPR terms: see the [data security and privacy statement](/policies/data-security-and-privacy).
+- What Connect and Forge are, and which platform each app runs on: see [how Raley apps run on Atlassian](/how-raley-apps-run-on-atlassian).
+- How to install an app and grant these permissions: see the [installation guide](/installation).
+- Anything about a specific permission on your site: ask us via the [support page](/support).
+
+---
+
+_Last updated: August 19, 2026_
