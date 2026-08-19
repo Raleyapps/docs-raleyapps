@@ -251,6 +251,10 @@
       {
         "href": "https://www.raleyapps.com/blog/?utm_source=docs&utm_medium=nav&utm_campaign=navbar&utm_content=blog",
         "label": "Our blogs"
+      },
+      {
+        "href": "https://www.linkedin.com/company/110341503",
+        "label": "Linkedin"
       }
     ]
   },
