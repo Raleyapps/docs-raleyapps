@@ -238,13 +238,19 @@
     "decoration": "grid"
   },
   "fonts": {
-    "family": "Montserrat"
+    "heading": {
+      "family": "Montserrat"
+    }
   },
   "navbar": {
     "links": [
       {
         "href": "https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc?ref=raleyapps.com&utm_source=docs&utm_medium=nav&utm_campaign=navbar&utm_content=our-apps",
         "label": "Our apps"
+      },
+      {
+        "href": "https://www.raleyapps.com/blog/?utm_source=docs&utm_medium=nav&utm_campaign=navbar&utm_content=blog",
+        "label": "Our blogs"
       }
     ]
   },
@@ -252,6 +258,12 @@
   "integrations": {
     "ga4": {
       "measurementId": "G-48YPB8MZZ6"
+    }
+  },
+  "footer": {
+    "socials": {
+      "website": "https://www.raleyapps.com/?utm_source=docs&utm_medium=nav&utm_campaign=navbar&utm_content=website",
+      "linkedin": "https://www.linkedin.com/company/110341503"
     }
   }
 }
