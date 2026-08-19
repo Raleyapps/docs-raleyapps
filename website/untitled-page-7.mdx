@@ -1,0 +1,45 @@
+---
+hidden: true
+title: "(Internal only) RaleyApps changelog style guide"
+---
+
+# **Make sure this page stays hidden** 
+
+Internal guide for maintaining the per-app changelog pages on [docs.raleyapps.com](http://docs.raleyapps.com). One page per app. Keep every rule below on every update so all six pages stay identical in structure. Based on the Keep a Changelog convention ([keepachangelog.com](http://keepachangelog.com), verified 2026-08-19).
+
+## **The rules**
+
+1. **One page per app.** Never mix apps on one page. Current pages: Procurement, Email Notifications, Intake Forms, Intake Forms Viewer, Bookman, Favourites.
+2. **Reverse chronology.** Newest release at the top, always. Update the "Current version" line and "Last updated" date with every edit.
+3. **Every entry carries version \+ date.** Format: `### <version> (Month D, YYYY)`. Never publish an entry without both.
+4. **Four tags only**: **Added** (new feature), **Changed** (change or improvement to existing behavior, including scope changes and rebrandings), **Fixed** (bug fix), **Security** (vulnerability fix or security patch). Bold the tag, colon, then plain-language summary. Initial releases get a plain "Initial release" line with no tag.
+5. **Plain language, user-facing.** Translate, never paste, commit messages or internal jargon. Say what changed and why it matters to the user. "Bug fixes and improvements" alone is banned; if a release has nothing user-facing to say, it does not get an entry (see rule 6).
+6. **Maintenance releases are omitted, not hidden.** Each page states this and links to the app's Atlassian Marketplace version history for the complete raw record. Never delete or rewrite an old entry; history is append-only.
+7. **Single audience.** These pages are for customers and evaluators, not developers. Developer-level detail belongs in linked docs, not the changelog.
+8. **Link out for depth.** Security entries link to the relevant Security Release Notes page. Major features should link to their documentation page once it exists. Every link must be click-verified live before publish (§K: no URL ships unfetched).
+9. **Attribution is team-level.** "Maintained by the RaleyApps team." Never put individual personal names on the public pages (§L).
+10. **No em or en dashes** anywhere in published output. Hyphens are fine.
+11. **Every claim traces to a source.** Versions, dates, and summaries come from the Marketplace version history (vendor export or the public REST API), never from memory. A feature that shipped inside a "Minor version update" release may only be added once the dev team confirms the version and date.
+
+## **Cadence and ownership**
+
+- Update the app's page in the same working session as every public Marketplace release, including one-line entries.
+- Owner: NOT YET ASSIGNED. Jane to designate (options: Jane herself, or fold into a scheduled routine that diffs the Marketplace API monthly and drafts entries for review). Until assigned, updates happen ad hoc, which is the failure mode this guide exists to prevent.
+
+## **Entry template**
+
+```text
+### 1.2.3-AC (Month D, YYYY)
+```
+
+`- **Added**: <what the user can now do>`
+
+`- **Changed**: <what behaves differently>`
+
+`- **Fixed**: <what was broken and is now correct>`
+
+`- **Security**: <what was patched; link the security notes page>`
+
+## **Page skeleton**
+
+Frontmatter (title \+ description), one-line scope sentence, the convention/attribution/Marketplace-link paragraph, "Current version" line, year or hosting-line sections with entries, "Questions?" support block, "Last updated" date.
