@@ -1,0 +1,65 @@
+---
+title: "Troubleshoot Raley Favourites"
+sidebarTitle: "Troubleshooting"
+keywords: ["toggle favourite missing jira", "jira favourites not showing", "raley favourites not working", "favourites list empty jira", "jira apps sidebar missing"]
+mode: "default"
+description: "Symptoms, likely causes, and fixes for common Raley Favourites for Jira problems: missing Toggle favourite entry, missing Favourites view, and starred work items not appearing."
+last_reviewed: "2026-08-19"
+---
+
+Work down the symptom that matches what you see. Fixed in one step or not at all? The [support page](/support) is the escalation path either way.
+
+## Symptom index
+
+| Symptom | Jump to |
+| --- | --- |
+| **Toggle favourite** is not in the work item's more actions menu | [Toggle favourite missing](#toggle-favourite-missing) |
+| No **Favourites** entry under **Apps** in the project sidebar | [Favourites view missing](#favourites-view-missing) |
+| A work item you starred is not in the list | [Starred work item not in the list](#starred-work-item-not-in-the-list) |
+
+## Toggle favourite missing
+
+**Symptom:** you open the more actions menu (**...**) on a work item and there is no **Toggle favourite** entry.
+
+**Likely cause:** the app is not installed on this site, or it is installed but disabled.
+
+**Fix:**
+
+1. Ask a site admin to check **Settings** \> **Apps** \> **Manage apps** and confirm Raley Favourites for Jira is installed and enabled.
+2. Not installed? Follow [Install your app](/apps/Get-started-with-RaleyApps#install-your-app).
+3. Reload the work item after the app is enabled and check the menu again.
+
+## Favourites view missing
+
+**Symptom:** the project sidebar's **Apps** section has no **Favourites** entry under **Your apps**.
+
+**Likely cause:** same as above, the app is not installed or not enabled; the sidebar entry ships with the app.
+
+**Fix:**
+
+1. Confirm install state under **Settings** \> **Apps** \> **Manage apps**, as above.
+2. Confirm you are looking inside a project: the list lives in the project sidebar, not on the Jira home screen.
+
+## Starred work item not in the list
+
+**Symptom:** you selected **Toggle favourite** on a work item, but the favourites list does not show it.
+
+**Likely cause:** the star was toggled twice (the same action adds and removes), or the list is filtered by a search term.
+
+**Fix:**
+
+1. Clear the inline search in the favourites list, then look again.
+2. Open the work item and select **Toggle favourite** once more, then recheck the list.
+3. Still missing? Contact us via the [support page](/support).
+
+## When you contact support
+
+Include these 3 things so the first reply can be a fix:
+
+1. Your site URL and the project where it happens.
+2. The work item key you starred.
+3. A screenshot of the more actions menu or the favourites list, whichever looks wrong.
+
+---
+
+_Last updated: August 19, 2026_
