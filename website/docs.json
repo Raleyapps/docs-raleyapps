@@ -220,7 +220,8 @@
           "policies/service-level-agreement",
           "policies/data-security-and-privacy",
           "untitled-page-4"
-        ]
+        ],
+        "icon": "lock-alt"
       },
       "support",
       {
