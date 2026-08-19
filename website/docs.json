@@ -235,7 +235,7 @@
     }
   ],
   "background": {
-    "decoration": "gradient"
+    "decoration": "grid"
   },
   "fonts": {
     "family": "Montserrat"
