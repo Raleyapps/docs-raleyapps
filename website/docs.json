@@ -19,12 +19,7 @@
   },
   "navigation": {
     "pages": [
-      {
-        "group": "Welcome",
-        "pages": [
-          "introduction"
-        ]
-      },
+      "introduction",
       {
         "group": "Raley Emails Notifications",
         "pages": [
