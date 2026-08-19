@@ -7,12 +7,12 @@
     "dark": "#1849A9"
   },
   "favicon": {
-    "light": "/favicon.svg",
-    "dark": "/favicon.svg"
+    "light": "/website/images/IP-purple-head-logo-rgb-small-transparent-bg.png",
+    "dark": "/website/images/IP-logo_rgb_small_transparent.png"
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/website/images/IP-logo_rgb_small_White-BG.png",
+    "dark": "/website/images/IP-purple-head-logo-rgb-large-green-bg.png"
   },
   "footer": {
     "socials": {}
@@ -23,7 +23,8 @@
         "group": "Welcome to RaleyApps Docs",
         "icon": "books",
         "pages": [
-          "introduction"
+          "introduction",
+          "untitled-page"
         ]
       },
       {
@@ -216,16 +217,16 @@
       {
         "group": "Changelog",
         "pages": [
-          "untitled-page",
-          "untitled-page-2",
-          "untitled-page-3",
-          "untitled-page-4",
-          "untitled-page-5",
-          "untitled-page-6",
-          "untitled-page-7"
+          "changelog/untitled-page",
+          "changelog/untitled-page-2",
+          "changelog/untitled-page-3",
+          "changelog/untitled-page-4",
+          "changelog/untitled-page-5",
+          "changelog/untitled-page-6",
+          "changelog/untitled-page-7"
         ]
       },
-      "policies/service-level-agreement-2",
+      "support",
       "untitled-page-8"
     ]
   },
