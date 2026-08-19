@@ -19,7 +19,13 @@
   },
   "navigation": {
     "pages": [
-      "introduction",
+      {
+        "group": "Welcome to RaleyApps Docs",
+        "icon": "books",
+        "pages": [
+          "introduction"
+        ]
+      },
       {
         "group": "Raley Emails Notifications",
         "pages": [
