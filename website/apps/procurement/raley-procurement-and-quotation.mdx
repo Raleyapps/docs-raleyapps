@@ -12,7 +12,7 @@ Raley Procurement and Quotation brings full procurement and quoting workflows in
 
 The app runs as an Atlassian Connect cloud add-on, which means it connects to your Jira instance through Atlassian's official app framework — no direct database access, no server-side code running inside your Jira.
 
-```
+```text
 Your team in Jira
        ↓
 Raley Procurement app (Atlassian Connect)
@@ -23,6 +23,7 @@ Jira REST API  ←→  Your Jira project data
 ```
 
 **What this means in practice:**
+
 - PO and quote data is stored on Raley's servers (DigitalCloud / AWS) — not inside Jira itself
 - All communication between the app and Jira uses SSL and JWT token authentication
 - Jira user permissions are checked for every action — the app cannot bypass your Jira project roles
@@ -36,6 +37,7 @@ For the full data and privacy breakdown, see [Data Security and Privacy](/polici
   <Card title="Sales Quotes" icon="file-invoice-dollar">
     Create, manage, and send quotes to customers directly from Jira.
   </Card>
+
   <Card title="Purchase Orders" icon="cart-shopping">
     Generate and track purchase orders, approvals, and order lines from within Jira.
   </Card>
@@ -44,21 +46,25 @@ For the full data and privacy breakdown, see [Data Security and Privacy](/polici
 ## What You Can Configure
 
 ### Suppliers & Products
+
 - Add and manage your supplier database
 - Import products in bulk via **CSV upload**
 - Set up product catalogs with pricing and tax rules
 
 ### Financials
+
 - Configure **multi-currency** support
 - Define **tax rules** for different regions or categories
 - Apply **discounts** at the order or line level
 
 ### Order Customization
+
 - Add **custom fields** to order lines
 - Configure **contact persons** and delivery addresses per order
 - Set up **approval workflows** for purchase requests
 
 ### Integrations
+
 - Connect via **API** for external system integration
 - Review **security vulnerability release notes** (2021–2022)
 
@@ -82,12 +88,15 @@ For the full data and privacy breakdown, see [Data Security and Privacy](/polici
   <Card title="Raley Emails Notifications" icon="envelope" href="/apps/raley-emails-notifications">
     Send customized emails and Slack notifications from Jira and JSM.
   </Card>
+
   <Card title="Raley Intake Forms" icon="file-lines" href="/apps/raley-intake-forms">
     Create powerful intake forms directly inside Jira and JSM.
   </Card>
+
   <Card title="Raley Bookman" icon="calendar-check" href="/apps/raley-bookman">
     Asset booking management inside the JSM portal.
   </Card>
+
   <Card title="Raley Favorites" icon="star" href="/apps/raley-favorites">
     Save and quickly access your most important Jira issues.
   </Card>

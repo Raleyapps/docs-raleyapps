@@ -20,18 +20,18 @@
         "group": "Welcome to RaleyApps Docs",
         "icon": "books",
         "pages": [
-          "introduction",
-          "Get-started-with-RaleyApps",
-          "choosing-an-app",
-          "installation",
-          "licensing-and-trials"
+          "apps/introduction",
+          "apps/Get-started-with-RaleyApps",
+          "apps/untitled-page",
+          "apps/untitled-page-2",
+          "apps/untitled-page-3"
         ]
       },
       {
         "group": "Concepts",
         "pages": [
-          "how-raley-apps-run-on-atlassian",
-          "jira-jsm-primitives"
+          "apps/how-raley-apps-run-on-atlassian",
+          "apps/jira-jsm-primitives"
         ],
         "icon": "apple-core"
       },
@@ -47,7 +47,7 @@
           {
             "group": "About the App",
             "pages": [
-              "apps/raley-emails-notifications",
+              "apps/emails-notifications/raley-emails-notifications",
               "apps/emails-notifications/features",
               "apps/emails-notifications/cloud-vs-server",
               "apps/emails-notifications/vs-jira-notifications"
@@ -100,7 +100,7 @@
           {
             "group": "About the App",
             "pages": [
-              "apps/raley-intake-forms",
+              "apps/intake-forms/raley-intake-forms",
               "apps/intake-forms/introduction"
             ]
           },
@@ -132,7 +132,7 @@
           {
             "group": "Getting Started",
             "pages": [
-              "apps/raley-procurement-jira-jsm",
+              "apps/procurement/raley-procurement-jira-jsm",
               "apps/procurement/purchase-orders",
               "apps/procurement/sales-quotes"
             ]
@@ -177,7 +177,7 @@
           {
             "group": "Getting Started",
             "pages": [
-              "apps/raley-bookman",
+              "apps/bookman/raley-bookman",
               "apps/bookman/configuration"
             ]
           },
@@ -209,7 +209,7 @@
           {
             "group": "Getting Started",
             "pages": [
-              "apps/raley-favorites"
+              "apps/favorites/raley-favorites"
             ]
           }
         ],
@@ -220,7 +220,7 @@
         "pages": [
           "policies/service-level-agreement",
           "policies/data-security-and-privacy",
-          "Application-scopes"
+          "policies/Application-scopes"
         ],
         "icon": "lock-alt"
       },
