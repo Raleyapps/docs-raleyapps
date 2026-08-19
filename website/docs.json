@@ -11,8 +11,8 @@
     "dark": "/website/images/IP-logo_rgb_small_transparent.png"
   },
   "logo": {
-    "light": "/website/images/IP-orange-head-logo-rgb-small-image-bg-with-white-text.png",
-    "dark": "/website/images/IP-orange-head-logo-rgb-small-image-bg-with-white-text.png"
+    "light": "/website/images/IP-logo_rgb_large_transparent-with-text.png",
+    "dark": "/website/images/IP-logo_rgb_small_transparent-with-text.png"
   },
   "navigation": {
     "pages": [
