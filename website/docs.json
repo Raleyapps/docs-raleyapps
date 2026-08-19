@@ -15,72 +15,47 @@
     "dark": "/website/images/IP-logo_rgb_small_transparent-with-text.png"
   },
   "navigation": {
-    "dropdowns": [
+    "pages": [
       {
-        "dropdown": "Welcome to RaleyApps Docs",
+        "group": "Welcome to RaleyApps Docs",
+        "icon": "books",
         "pages": [
-          {
-            "group": "Welcome to RaleyApps Docs",
-            "icon": "books",
-            "pages": [
-              "apps/introduction",
-              "apps/Get-started-with-RaleyApps",
-              "apps/choosing-an-app",
-              "apps/Installation",
-              "apps/licensing-and-trials"
-            ]
-          }
+          "apps/introduction",
+          "apps/Get-started-with-RaleyApps",
+          "apps/choosing-an-app",
+          "apps/Installation",
+          "apps/licensing-and-trials"
         ]
       },
       {
-        "dropdown": "Concepts",
+        "group": "Concepts",
+        "icon": "apple-core",
         "pages": [
-          {
-            "group": "Concepts",
-            "icon": "apple-core",
-            "pages": [
-              "apps/how-raley-apps-run-on-atlassian",
-              "apps/jira-jsm-primitives"
-            ]
-          }
+          "apps/how-raley-apps-run-on-atlassian",
+          "apps/jira-jsm-primitives"
         ]
       },
       {
-        "dropdown": "Security",
+        "group": "Security",
+        "icon": "lock-alt",
         "pages": [
-          {
-            "group": "Security",
-            "icon": "lock-alt",
-            "pages": [
-              "policies/service-level-agreement",
-              "policies/data-security-and-privacy",
-              "policies/Application-scopes"
-            ]
-          }
+          "policies/service-level-agreement",
+          "policies/data-security-and-privacy",
+          "policies/Application-scopes"
         ]
       },
+      "support",
       {
-        "dropdown": "Changelog",
+        "group": "Changelog",
+        "icon": "exchange",
         "pages": [
-          {
-            "group": "Changelog",
-            "icon": "exchange",
-            "pages": [
-              "changelog/untitled-page",
-              "changelog/untitled-page-2",
-              "changelog/untitled-page-3",
-              "changelog/untitled-page-4",
-              "changelog/untitled-page-5",
-              "changelog/untitled-page-6",
-              "changelog/untitled-page-7"
-            ]
-          }
-        ]
-      },
-      {
-        "dropdown": "Support Channel",
-        "pages": [
-          "support"
+          "changelog/untitled-page",
+          "changelog/untitled-page-2",
+          "changelog/untitled-page-3",
+          "changelog/untitled-page-4",
+          "changelog/untitled-page-5",
+          "changelog/untitled-page-6",
+          "changelog/untitled-page-7"
         ]
       }
     ]
