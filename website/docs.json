@@ -32,7 +32,8 @@
         "pages": [
           "how-raley-apps-run-on-atlassian",
           "jira-jsm-primitives"
-        ]
+        ],
+        "icon": "apple-core"
       },
       {
         "group": "Raley Emails Notifications",
