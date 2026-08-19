@@ -202,9 +202,10 @@
         ]
       },
       {
-        "group": "Policies",
+        "group": "Security",
         "pages": [
           "policies/service-level-agreement",
+          "policies/service-level-agreement-2",
           "policies/data-security-and-privacy"
         ]
       }

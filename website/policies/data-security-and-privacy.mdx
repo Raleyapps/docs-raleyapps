@@ -1,101 +1,148 @@
 ---
-title: "RaleyApps data security and privacy statement"
-description: "How RaleyApps add-ons for Jira and JSM access, process, store, and protect your data, including hosting locations, encryption, and GDPR compliance details."
+title: "Data Access & Security Statement"
 last_reviewed: "2026-05-19"
 ---
 
-This statement describes the data access, handling, and storage practices for all Raley add-ons. _Effective: November 4, 2022._
+# **OnDemand hosting**
 
-## Hosting Infrastructure
+### **Raley Emails Notifications**
 
-All cloud-hosted systems run on **DigitalOcean** and **Amazon AWS** servers located in **Amsterdam** and the **USA**. Server access is limited to the RaleyApps support team.
+Our Notifications add-on is installed with READ, WRITE, ADMIN and ACCESS\_EMAIL\_ADDRESSES permissions in atlassian-connect descriptor, which means that it can do the following with your JIRA : 
 
-- **Data retention after uninstall:** User-provided data is retained for up to 60 days, then permanently deleted.
-- **Third-party sharing:** Data is never shared with third parties except as required by law.
-- **Encryption:** All communications between the app and Jira use SSL and JWT encryption.
-- **Google API compliance:** The apps comply with the Google API Services User Data Policy.
+READ: issues, projects and versions from your JIRA .
+
+WRITE: Raley Notifications can add comments to your JIRA issues when "Audit enabled" is turned on for specific notifications. The content of the comment is a textual value of notification that Raley sends out for this issue.
+
+ADMIN: reading data of JIRA user and retrieving emails of members of specific JIRA group(s).
+
+ACCESS\_EMAIL\_ADDRESSES: retrieve ALL email addresses for all accounts in your Jira
+
+If you're using sending to **Slack** or **HipChat** then Raley will store the credentials you provide from those messaging platforms which are necessary to send the notifications. It does not read any data from **Slack** or **HipChat.**
+
+If you're (like most people, actually) use Email-based notifications then:
+
+- if using your own SMTP outgoing mail server that requires authentication, then we will store necessary user and password to send emails from it.
+- if you rely on Raley-provided outgoing SMTP server then notifications will be send via Mandrill app on behalf of **Raley Notifications ([notifications@<u>raleyapps.com</u>](mailto:notifications@raleyapps.com))**
+
+We do not persistently store the details of your JIRA issues/projects/versions on our servers.
+
+All communication between your JIRA and Raley Notifications is secured by combination of SSL and JWT. We regularly backup your notifications configuration and store them for at least 30 days.
+
+ 
+
+### **_Authentication with GMail OAuth 2_**
+
+Raley Emails Notifications for Jira/JSM can send emails from your GMail account on your name. For that it requires that you grant us access scopes:
+
+- [**<u>https://www.googleapis.com/auth/gmail.send</u>**](https://www.googleapis.com/auth/gmail.send)
+- [**https://www.googleapis.com/auth/gmail.metadata**](https://www.googleapis.com/auth/gmail.metadata)
+
+The first scope, as name implies, is needed to send an email message under your name. The second scope ([https://www.googleapis.com/auth/gmail.metadata](https://www.googleapis.com/auth/gmail.metadata)) is required to retrieve the metadata of the email we've just sent to get the value of **_Message-ID_** header. We're storing the value of **_Message-ID_** on our side to refer to other emails (using **_References_** header) that were sent for the same Jira/JSM ticket. This allows for a beautiful threaded view of all emails sent by Raley for specific Jira/JSM ticket.
+
+ 
+
+The app is sending emails directly and not from the Drafts folder. For sending, we need to know your GMail name and your GMail email which you provide during configuration of GMail OAuth2 outgoing email server in Raley.
+
+ 
+
+You connect your GMail account with the JSM to pick up new emails and create support tickets from them - this is JSM standard functionality (Email Requests). Raley allows you to connect the same GMail mailbox for sending outgoing emails. As a result - all your ticketing is happening via a single GMail account and thus greatly enhances user experience for your JSM users (customers).
+
+ 
+
+We store user’s name and email address as you provide those during GMail Oauth2 configuration in Raley. These values are used to send emails from the given GMail account.
+
+Raley Emails Notifications for Jira/JSM’s use and transfer to any other app of information received from Google APIs will adhere to the [<u>Google API Services User Data Policy</u>](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes "https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes"), including the Limited Use requirements.
+
+### **Raley IntakeForms**
+
+Our IntakeForms add-on is installed with READ, WRITE and ADMIN permissions in atlassian-connect descriptor, which means that it can do the following with your JIRA:
+
+READ: issue and projects meta information from your JIRA necessary to create issues.
+
+WRITE: create issues (potentially, with attachments) in JIRA based on the form configuration that you set up. 
+
+ADMIN: create customers in your JIRA ServiceDesk, obtain information about your JIRA project metadata
+
+We do not store the data submitted via Raley IntakeForms and do not read issues from your JIRA.
+
+All communication between your JIRA and Raley IntakeForms is secured by combination of SSL and JWT. The form is rendered in IFrame and  **_src_**  is HTTPS protected.
+
+We regularly backup your notifications configuration and store them for at least 30 days.
+
+### **Raley Purchase Orders**
+
+Our PurchaseOrders app is requiring the following permissions through atlassian-connect descriptor:
+
+READ: issue-related information to create and manage purchasing workflow
+
+WRITE: to transition issue in workflow
+
+ADMIN:  read project and workflow-related information to manage PO statuses, information about your Jira users to handle your organization structure and users rights
+
+ACCESS\_EMAIL\_ADDRESSES: to send email notifications to Jira users when their approval of a Purchase Order is needed
+
+Raley PurchaseOrders stores information about your workflow statuses, existing project keys and issue keys. Other issue-related data is not stored.
+
+We also store all the quantitive information about purchase orders like lines, amounts and summaries. 
+
+We do not store private user information.
+
+All the data stored in Raley PO is regularly backed up and stored for at least 30 days.  
+
+### **Raley Bookman**
+
+The Bookman app requires the following permissions through atlassian-connect descriptor:
+
+READ: issue-related information from the issues that match JQL's provided on Bookman configuration page
+
+WRITE: assigning issue properties for Booking type of JSM requests
+
+DELETE: customer users can delete Booking type of JSM requests that were submitted by them
+
+Bookman does not store private user information.
+
+All the data stored in Raley Bookman is regularly backed up and stored for at least 30 days.  
+
+### **Data storage and access  **
+
+Raley cloud apps are hosted on [<u>digitalcloud.com</u>](http://digitalcloud.com) and Amazon AWS servers. Physically, data centers are located in Amsterdam and USA. Access to the Raley servers and data <br />is strictly limited only to RaleyApps support team. Our support team periodically inspects servers and data stored to troubleshoot issues and monitor application <br />performance.   
+
+### **Data privacy**
+
+Data collected during the use of Raley AddOn will not be shared with third parties except as required by law. <br />When you uninstall this AddOn, we retain all of the data you've provided to us for a period of up to 60 days. After that period the data is deleted.<br /> 
+
+ 
+
+# **RaleyApps with Server hosting**
+
+### **Notifications**
+
+Our Raley Notifications add-on for JIRA / ServiceDesk is an application that resides on your host JIRA server. It has access to the following data:
+
+READ:
+
+- single issue (and attachments) by key/id and multiple issues by JQL. For latter Raley uses "jirassimo" user to perform a query, thus, you can finely tune data access by configuring access permissions for "jirassimo" user.
+- Projects
+- Users
+
+WRITE
+
+- Notifications configurations and the actual emails sent by AddOn if auditing is enabled on specific configuration
+
+### **Data storage and access**
+
+Raley Notifications keeps all of its configuration in the host JIRA server and does not interact to the other systems (except Email/Slack/HipChat as configured). No data is send to any third party by this add-on. RaleyApps team does not collect any data from installations of Raley Notifications. 
+
+### **Data backup**
+
+Raley Notification does not provide any in-build facility for data backup. Instead it relies on back up of host JIRA database to restore it's function in case of disaster.
+
+ <br />Effective as of November 4, 2022.
+
+## **Questions?**
+
+For data or privacy questions, contact us at [Support](/policies/service-level-agreement-2)
 
 ---
 
-## Cloud-Hosted Apps
-
-### Raley Emails Notifications
-
-**Permissions:** READ, WRITE, ADMIN, ACCESS\_EMAIL\_ADDRESSES
-
-**What it reads:**
-
-- Jira issues, projects, and versions
-- User data and email addresses from Jira groups and accounts
-
-**What it stores:**
-
-- Configuration data (including SMTP, Slack, or HipChat credentials if configured) — backed up for 30\+ days
-- When audit is enabled: writes a copy of sent notifications as private issue comments
-- Does **not** persistently store the details of your Jira issues, projects, or versions
-
-**Gmail OAuth:** When configured for Gmail, the app stores Message-ID headers and user name/email to enable email threading.
-
----
-
-### Raley Intake Forms
-
-**Permissions:** READ, WRITE, ADMIN
-
-**What it does:**
-
-- Reads issue and project metadata to build forms
-- Creates Jira issues and JSM customers from form submissions
-
-**What it stores:**
-
-- Does **not** store submitted form data
-- All iframe rendering is HTTPS-protected
-- Communications secured via SSL and JWT
-- Configuration backed up for 30\+ days
-
----
-
-### Raley Procurement for Jira & JSM
-
-**Permissions:** READ, WRITE, ADMIN, ACCESS\_EMAIL\_ADDRESSES
-
-**What it stores:**
-
-- Workflow statuses, project keys, issue keys, and quantitative PO data (line amounts, summaries)
-- Does **not** store private user information
-- Configuration backed up for 30\+ days
-
----
-
-### Raley Bookman
-
-**Permissions:** READ, WRITE, DELETE
-
-**What it reads:** Jira issues matching configured JQL queries; JSM Assets workspace information
-
-**What it stores:**
-
-- App-specific booking attributes attached to Jira issues/JSM requests
-- Does **not** store private user information
-- 30\+ day backup retention
-
----
-
-## Server-Hosted Apps
-
-### Raley Notifications (Server)
-
-**Permissions:** READ and WRITE access to issues, attachments, projects, and users on the host Jira server.
-
-**What it stores:**
-
-- All configuration is stored locally on your Jira server — no data is transmitted to external systems or third parties
-- RaleyApps does not collect installation data from server instances
-- Disaster recovery relies on your Jira server's own database backup
-
----
-
-## Questions?
-
-For data or privacy questions, contact us at [support@raleyapps.com](mailto:support@raleyapps.com).
+_Last updated: August 19, 2026_
