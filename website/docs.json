@@ -2,20 +2,17 @@
   "theme": "sequoia",
   "name": "RaleyApps Docs",
   "colors": {
-    "primary": "#1570EF",
-    "light": "#53B1FD",
-    "dark": "#1849A9"
+    "primary": "#1C5E69",
+    "light": "#A8F2FC",
+    "dark": "#1C5E69"
   },
   "favicon": {
-    "light": "/website/images/IP-purple-head-logo-rgb-small-transparent-bg.png",
+    "light": "/website/images/IP-logo_rgb_large_transparent.png",
     "dark": "/website/images/IP-logo_rgb_small_transparent.png"
   },
   "logo": {
-    "light": "/website/images/IP-logo_rgb_small_White-BG.png",
-    "dark": "/website/images/IP-purple-head-logo-rgb-large-green-bg.png"
-  },
-  "footer": {
-    "socials": {}
+    "light": "/website/images/IP-orange-head-logo-rgb-small-image-bg-with-white-text.png",
+    "dark": "/website/images/IP-orange-head-logo-rgb-small-image-bg-with-white-text.png"
   },
   "navigation": {
     "pages": [
@@ -236,5 +233,25 @@
       "destination": "/apps/raley-procurement-jira-jsm",
       "permanent": true
     }
-  ]
+  ],
+  "background": {
+    "decoration": "gradient"
+  },
+  "fonts": {
+    "family": "Montserrat"
+  },
+  "navbar": {
+    "links": [
+      {
+        "href": "https://marketplace.atlassian.com/vendors/1212475/inversion-point-llc?ref=raleyapps.com&utm_source=docs&utm_medium=nav&utm_campaign=navbar&utm_content=our-apps",
+        "label": "Our apps"
+      }
+    ]
+  },
+  "description": "Documentation for Raley apps for Jira and JSM: Email Notifications, Intake Forms, Procurement, Bookman, and Favorites. Setup guides, tutorials, and troubleshooting",
+  "integrations": {
+    "ga4": {
+      "measurementId": "G-48YPB8MZZ6"
+    }
+  }
 }
