@@ -190,7 +190,8 @@
               "apps/bookman/application-scopes"
             ]
           }
-        ]
+        ],
+        "hidden": true
       },
       {
         "group": "Raley Favorites",
