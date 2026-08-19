@@ -75,7 +75,8 @@
               "apps/emails-notifications/security-2021"
             ]
           }
-        ]
+        ],
+        "hidden": true
       },
       {
         "group": "Raley Intake Forms",
@@ -112,7 +113,8 @@
               "apps/intake-forms/faq"
             ]
           }
-        ]
+        ],
+        "hidden": true
       },
       {
         "group": "Raley Procurement for Jira & JSM",
@@ -156,7 +158,8 @@
               "apps/procurement/security-2022"
             ]
           }
-        ]
+        ],
+        "hidden": true
       },
       {
         "group": "Raley Bookman",
@@ -198,7 +201,8 @@
               "apps/raley-favorites"
             ]
           }
-        ]
+        ],
+        "hidden": true
       },
       {
         "group": "Security",
