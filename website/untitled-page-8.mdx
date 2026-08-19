@@ -1,0 +1,225 @@
+---
+title: "(Internal Only) Documentation Structure"
+hidden: true
+---
+
+# Make sure this page stays hidden
+
+# The RaleyApps Documentation Master Reference
+
+## TL;DR
+
+- **Adopt a Diátaxis-based information architecture per app** (tutorials, how-to guides, reference, explanation) layered on top of a shared "getting started → concepts → per-feature how-tos → reference → troubleshooting → changelog → security" spine. The current docs.raleyapps.com site (44 pages) already has strong bones for Procurement and Emails Notifications but is dangerously thin for Raley Favorites (1 page) and lacks consistent per-app getting-started, unified reference, and concept pages.
+- **Your biggest, cheapest wins are structural and mechanical**: give every app the same five-to-seven page skeleton, split mixed-mode pages into clean Diátaxis types, add alt text and prerequisites to every page, and exploit the fact that Mintlify auto-generates llms.txt/llms-full.txt and per-page markdown for AI search — you are already ahead on AI-readiness and should protect that.
+- **Run the weighted 100-point audit rubric** in this document against each app before each release. Excellent (90\+) means: a new admin can install and get first value in under 10 minutes, every feature has a task-oriented how-to, reference is complete and neutral, troubleshooting maps symptoms→fixes, the changelog follows Keep a Changelog, and security/data-handling is one click away.
+
+## Key Findings
+
+1. **Diátaxis is the authoritative organizing framework and it is a primary source you should cite internally.** Diátaxis (diataxis.fr) was created in 2020 by Daniele Procida — a core Django developer who was Director of Engineering at Canonical (the company behind Ubuntu) — and identifies four documentation types serving four distinct needs: tutorials (learning-oriented, "on rails"), how-to guides (task/goal-oriented, for the already-competent user), reference (information-oriented, austere, "describe and only describe"), and explanation (understanding-oriented, the "why"). Its core discipline is _not mixing modes on one page_. Documented adopters include Django, Canonical/Ubuntu, Gatsby ("the Diátaxis framework was our go-to resource throughout the project"), and Cloudflare, which called it "our north star for information architecture" while redesigning its developer docs.
+2. **Atlassian formally requires and rewards good app documentation.** Atlassian's App approval guidelines state your listing must reference documentation describing how to set up and use the app; verbatim: "All applications must have documentation outlining the functionality, installation, configuration instructions, and other pertinent information." The Marketplace app listing principles add accessibility requirements (descriptive alt text, don't rely on color alone, legibility) and instruct partners to treat the listing as "a living asset, not a one-time submission." Atlassian also advises partners to "test your documentation with your team, peers, or customers to check that it's accurate and easy to follow." As a Cloud Fortified, Silver Marketplace Partner, RaleyApps is held to elevated trust and support expectations — Cloud Fortified apps must meet a 24-hour support response time, five days a week.
+3. **Mintlify gives RaleyApps AI-search readiness essentially for free — a real competitive edge.** Mintlify automatically hosts llms.txt (index) and llms-full.txt (full corpus) at the site root — a capability it rolled out across all hosted sites (including Anthropic and Cursor) in mid-November 2024 — serves clean markdown per page via content negotiation, and offers "Copy page / View as markdown / Open in ChatGPT/Claude" affordances. The confirmed docs.raleyapps.com/llms.txt already works. Navigation is defined in docs.json as a hierarchy of tabs → groups → pages; Mintlify's own guidance is to "choose one primary organizational pattern at the root."
+4. **The current RaleyApps docs site has uneven, sometimes mode-mixed coverage.** Inventory (44 doc pages \+ 1 OpenAPI spec): Procurement 14, Emails Notifications 12, IntakeForms 7, Bookman 6, Favorites 1. There is one site-wide changelog, a data-security-and-privacy policy, and an SLA page. Gaps: Favorites is a stub; Procurement and Favorites have no dedicated getting-started page; there are no explicitly labeled "Concepts" pages; reference is scattered inside FAQ and features pages rather than consolidated; and llms.txt is flat (only "## Docs" and "## OpenAPI Specs" headings), suggesting the navigation grouping could be sharpened.
+5. **Writing-craft consensus across Google, Microsoft, and Write the Docs is remarkably consistent.** Use second person, present tense, active voice, and the serial comma (Google). "Simple and human," sentence-case headings, write for scanning first (Microsoft). Every Page Is Page One (Mark Baker) \+ minimalism (John Carroll): readers land mid-site and forage, so each page must stand alone, be action-oriented, and support error recovery. Docs-as-code (Write the Docs / Eric Holscher): documentation lives in Git alongside code, reviewed via pull requests, so features can be blocked from merge until documented.
+6. **llms.txt is an emerging, non-official standard — hedge accordingly.** It was published on September 3, 2024 by Jeremy Howard, co-founder of Answer.AI and fast.ai, who proposed "adding a /llms.txt file to websites that are designed for reading by language models, not just humans." It is a proposal, not a standard — there is no W3C or IETF working group behind it, no major search engine has committed to consuming it, and as of 2026 no major AI provider confirms using it for search. There is no evidence publishing one improves traditional Google/Bing rankings, and Mintlify's own benchmarking is directional, not independent proof. Treat it as low-cost, high-optionality insurance, not a guaranteed traffic driver.
+
+## Details
+
+### A. The four Diátaxis types (verified from diataxis.fr)
+
+| Type | User need | Orientation | Key rule | RaleyApps example |
+| :-- | :-- | :-- | :-- | :-- |
+| **Tutorial** | Learning by doing | Acquisition \+ Action | Reader is "on rails"; guarantee success; minimal explanation | "Build your first email notification rule in Jira Cloud" |
+| **How-to guide** | Accomplishing a task | Application \+ Action | Written from the user's goal, not the machinery; "action and only action; no digression"; adaptable to real-world cases; omit the unnecessary | "Apply order-level discounts to a purchase order" |
+| **Reference** | Looking up facts while working | Application \+ Cognition | "Describe and only describe"; austere, neutral, consistent patterns; mirror the structure of the product; provide examples | "Atlassian Connect scopes required by Raley Bookman" |
+| **Explanation** | Understanding the why | Acquisition \+ Cognition | Discuss, give context and rationale; link out to how-tos rather than instruct | "Why run procurement inside Jira" |
+| Diátaxis's own guidance on titles (from the how-to page): name a how-to for exactly what it shows ("How to integrate application performance monitoring"), because "search engines appreciate good titles just as much as humans do." |  |  |  |  |
+
+### B. Recommended RaleyApps documentation structure (folder / page tree)
+
+This is the ideal target IA. It applies a shared spine to every app, mapped to Diátaxis. Site-wide sections sit at the top; each app is a group.
+
+```text
+docs.raleyapps.com/
+│
+├── introduction                      [Explanation]  Home: what RaleyApps is, the 5 apps, support
+├── getting-started/
+│   ├── choosing-an-app               [Explanation]  Which app solves which problem
+│   ├── installation                  [How-to]       Install any Raley app from Marketplace
+│   └── licensing-and-trials          [Reference]    Pricing tiers, trial, user-tier behavior
+│
+├── concepts/                         [Explanation]  Cross-app mental models
+│   ├── how-raley-apps-run-on-atlassian   (Connect/Forge, data flow, JWT over SSL)
+│   └── jira-jsm-primitives-we-use    (projects, request types, JQL/AQL, custom fields)
+│
+├── apps/
+│   ├── <app>/                        ← REPEAT THIS SKELETON FOR ALL 5 APPS
+│   │   ├── overview                  [Explanation]  What it is, who it's for, key concepts
+│   │   ├── getting-started           [Tutorial]     First value in <10 min, on rails
+│   │   ├── guides/                   [How-to]       One page per real task (verb-first titles)
+│   │   │   ├── configure-…
+│   │   │   ├── set-up-…
+│   │   │   └── …
+│   │   ├── reference/                [Reference]    Austere, complete, neutral
+│   │   │   ├── settings
+│   │   │   ├── permissions-and-scopes
+│   │   │   ├── fields
+│   │   │   └── api            (link OpenAPI where applicable)
+│   │   ├── faq                       [How-to/Ref]   Question-led lookups
+│   │   └── troubleshooting           [How-to]       Symptom → cause → fix table
+│   │
+│   ├── raley-procurement/            (has 14 pages — closest to target already)
+│   ├── raley-emails-notifications/   (has 12 pages)
+│   ├── raley-intake-forms/           (has 7 pages)
+│   ├── raley-bookman/                (has 6 pages)
+│   └── raley-favorites/              (STUB — 1 page; needs full skeleton)
+│
+├── security/
+│   ├── data-security-and-privacy     [Reference]    (exists) hosting, encryption, GDPR, residency
+│   ├── application-scopes            [Reference]    Per-app Atlassian Connect scopes
+│   └── service-level-agreement       [Reference]    (exists) support SLAs, severity, hours
+│
+├── changelog                         [Reference]    (exists) Keep a Changelog format, all apps
+│
+└── support                           [How-to]       Portal link, email, response-time promise
+```
+
+Notes:
+
+- **Adopt Diátaxis grouping inside each app** (Getting started / Guides / Reference / Troubleshooting). This is the single highest-leverage change because it makes both humans and AI agents build an accurate mental model, and it stops the current pattern of settings/permissions being buried inside FAQ pages.
+- **Comparison/positioning pages** (cloud-vs-server, vs-jira-notifications, vs-jira-cloud-forms, advantages-over-issue-collector) are Explanation-type and marketing-adjacent; keep them but clearly separate them from reference so they don't pollute neutral lookup material.
+- **Security release notes** (emails-2021, procurement-2021 Log4Shell, procurement-2022) should be cross-linked from both the changelog and the security section, and dated in reverse-chronological order.
+
+### C. Reusable page templates
+
+**1. Installation / Getting-started (Tutorial)**
+
+```text
+# Get started with <App> in <N> minutes
+> Outcome: by the end you will have <concrete first result>.
+Prerequisites: Jira/JSM Cloud admin; <app> installed; <any prerequisite objects>.
+Time: ~<N> min.
+1. Install <App> from the Atlassian Marketplace
+2. <First configuration step> (screenshot + alt text)
+3. <Second step>
+4. Verify: you should now see <observable success state>
+Next steps: → <link to the most common how-to> · → <reference>
+```
+
+Keep it on rails, guarantee success, minimize explanation (link out for "why"). **2. How-to guide (Task)**
+
+```text
+# How to <do the specific task>
+Use this guide when you want to <goal / real-world situation>.
+Prerequisites: <role, prior setup>.
+1. <Action> — imperative, one action per step
+2. <Action> (conditional imperatives: "If you want X, do Y")
+Result: <what the user now has>.
+Related: <how-to> · <reference for full option list>
+```
+
+Action and only action; no teaching; omit the unnecessary; adaptable to variants. **3. Reference (settings / permissions / fields / API)**
+
+```text
+# <App> <settings|permissions|fields> reference
+Short scope line (what this describes).
+| Setting | Values / type | Default | Notes / constraints |
+|---|---|---|---|
+Warnings ("You must… / Never…") where behavior is destructive or irreversible.
+Examples of usage, kept short.
+```
+
+Austere, neutral, consistent structure mirroring the product; describe and only describe; link out to how-tos. **4. Troubleshooting / FAQ**
+
+```text
+# Troubleshoot <App>
+| Symptom | Likely cause | Fix |
+|---|---|---|
+For each: what the user sees, why, numbered fix steps, and when to contact support.
+FAQ: question-form H2/H3s, each answer self-contained (Every Page Is Page One).
+```
+
+**5. Changelog / Release notes (Reference)** — follow Keep a Changelog:
+
+```text
+# Changelog
+## [Unreleased]
+## [x.y.z] – YYYY-MM-DD
+### Added / Changed / Deprecated / Removed / Fixed / Security
+- User-facing, benefit-first bullet (avoid "various bug fixes and improvements")
+```
+
+Reverse chronological; group by app or tag app per entry; link security entries to details. **6. Concept / Explanation**
+
+```text
+# Understanding <concept>
+What it is, why it exists, how it fits your Jira/JSM workflow, trade-offs, and what it is *not*.
+Link to the tutorial and the relevant how-tos; do not include step-by-step instructions here.
+```
+
+**7. ADR (internal, docs-as-code, MADR 4.0 format)**
+
+```text
+# <short decision title>
+## Status: proposed | accepted | superseded by ADR-NNNN
+## Context and Problem Statement
+## Considered Options
+## Decision Outcome — chosen option, because…
+### Consequences (good / bad)
+```
+
+Store in `docs/decisions/NNNN-title.md`; never edit an accepted ADR — supersede it.
+
+### D. Writing-craft rules to enforce (from Google, Microsoft, WCAG, EPPO)
+
+- **Voice:** second person, present tense, active voice, serial comma; "simple and human"; read aloud to test.
+- **Headings:** sentence case; verb-first for how-tos; descriptive enough to disambiguate whether/how/what.
+- **Scannability:** short sentences, one idea per paragraph, numbered steps for procedures, tables for reference, bold for UI labels.
+- **Prerequisites & outcomes:** every task page states role/permissions, prerequisite objects, and the observable success state.
+- **Every Page Is Page One:** every page stands alone with enough context; rich cross-links; assume the reader landed here from search or an AI answer.
+- **Accessibility (WCAG 2.1/2.2 AA):** every informative image has alt text conveying the equivalent information; decorative images get empty alt; never instruct by color alone ("click Submit", not "click the blue button"); provide captions/transcripts for any video; use real text, not images of text; ensure contrast. Keep alt text concise (~125 characters is a common heuristic that originates from older JAWS truncation behavior; current JAWS, NVDA, and VoiceOver no longer truncate, and WCAG sets no hard limit). This also satisfies Atlassian's listing accessibility principles and the EU Accessibility Act baseline.
+- **Evidence/claim discipline:** state facts neutrally in reference; keep marketing claims out of reference pages; date security and release content; distinguish shipped features from roadmap.
+
+### E. Docs-as-code and maintenance discipline
+
+RaleyApps already runs docs-as-code (Mintlify \+ Git \+ MDX). Enforce: docs live in the same repo/PR flow as code; block merging a user-facing change until its doc is updated; review docs like code; keep one source of truth per topic (no overlapping content); reader-test with a real admin per Atlassian's advice. Co-author with engineers writing the first technical draft and a reviewer editing for craft and Diátaxis purity.
+
+## Recommendations
+
+**Stage 1 — Structural triage (this week):**
+
+1. Give **Raley Favorites** the full app skeleton (overview, getting-started, at least 2–3 how-tos, a reference page, FAQ/troubleshooting). It is currently a single stub and drags down both user value and the audit score.
+2. Add a **dedicated getting-started/tutorial page for Procurement** (its deepest app but missing a first-run path) and for any other app lacking one.
+3. Re-group navigation in docs.json inside each app into Diátaxis sections (Getting started / Guides / Reference / Troubleshooting) so the sidebar teaches the product's shape. **Stage 2 — Reference and concepts (next 2–4 weeks):**
+4. Consolidate scattered settings/permissions/fields out of FAQ/features pages into per-app **reference** pages using the reference template.
+5. Add a shared **concepts** section (how Raley apps run on Atlassian; Jira/JSM primitives) so explanation stops leaking into how-tos.
+6. Convert the changelog to strict **Keep a Changelog** structure with an `[Unreleased]` section and Added/Changed/Fixed/Security groupings; cross-link the three security releases. **Stage 3 — Craft and AI polish (ongoing):**
+7. Run an alt-text and heading-case pass across all pages (accessibility \+ Atlassian listing compliance).
+8. Add a **custom llms.txt** with curated, grouped sections (Mintlify's auto file is flat) to sharpen AI-agent retrieval, and keep the "Open in ChatGPT/Claude" affordances on.
+9. Institute reader-testing: watch one real Jira admin complete each app's getting-started; fix every stumble. **Benchmarks that change the plan:** If any app scores below 70 on the rubric, freeze new-feature docs and fix structure first. If Favorites reaches parity (≥5 pages, all Diátaxis types) it can exit triage. If support tickets cluster on a topic, that topic needs a how-to or troubleshooting entry within one release.
+
+### The RaleyApps User-Value Documentation Scorecard (0–100)
+
+Score each app (or the whole site) per dimension, 0–100, then multiply by weight. "Excellent" descriptions define the 90\+ bar.
+
+| # | Dimension | Weight | What "excellent" (90\+) looks like |
+| :-- | :-- | :-- | :-- |
+| 1 | **Onboarding / getting-started** | 15 | A new admin installs and reaches first value in \<10 min via an on-rails tutorial with prerequisites, time estimate, and a verified success state. |
+| 2 | **Task guidance (how-tos)** | 15 | Every real user task has a goal-titled, action-only how-to; covers real-world variants; no teaching/digression. |
+| 3 | **Reference quality** | 12 | Settings, permissions/scopes, fields, and API are complete, neutral, consistently formatted, and mirror the product; examples included. |
+| 4 | **Troubleshooting / FAQ** | 10 | Symptom→cause→fix tables cover the top support drivers; each answer self-contained; escalation path clear. |
+| 5 | **Concepts / explanation** | 8 | The "why" and mental models exist and are separated from procedures; explains what the app is _not_. |
+| 6 | **Changelog / release notes** | 8 | Keep a Changelog format, reverse-chronological, benefit-first, security entries dated and linked; `[Unreleased]` maintained. |
+| 7 | **Findability / SEO / IA** | 10 | One clear primary IA; Diátaxis grouping; descriptive titles; strong internal linking; search works. |
+| 8 | **Accessibility (WCAG AA)** | 8 | Alt text on all informative images, no color-only instructions, captions/transcripts, contrast, real text. |
+| 9 | **AI-search readiness (AEO)** | 6 | llms.txt/llms-full.txt present and curated; clean per-page markdown; "Open in ChatGPT/Claude"; content self-contained per page. |
+| 10 | **Maintainability / evidence discipline** | 8 | Docs-as-code with PR review; one source of truth per topic; dated content; claims sourced; roadmap vs shipped clearly separated. |
+|  | **Total** | **100** |  |
+| Scoring bands: **90–100 excellent** (publish/marketing-ready); **75–89 good** (minor gaps); **60–74 adequate** (structural fixes needed); **\<60 at risk** (freeze features, fix docs). RaleyApps' current likely profile: strong on AI-readiness (Mintlify) and security/policy pages, weak on onboarding parity across apps, reference consolidation, and Favorites coverage. |  |  |  |
+
+## Caveats
+
+- **llms.txt is unofficial and unproven for rankings.** It was published September 3, 2024 by Jeremy Howard (Answer.AI/fast.ai) and remains a proposal — no W3C/IETF working group, no major search engine or AI provider has publicly committed to consuming it for search, and there is no evidence it lifts traditional Google/Bing rankings. Vendor (Mintlify) benchmarks are self-interested. Adopt it as cheap optionality, not a guaranteed growth lever.
+- **The scorecard weights are an editorial synthesis**, not an external standard. They are calibrated for a B2B Atlassian Marketplace app suite (onboarding and task guidance weighted highest because that is where Marketplace evaluators and trial users decide). Adjust weights to your funnel data.
+- **Some cited craft sources are secondary** (Medium summaries of the Microsoft Manual of Style, community blogs on Every Page Is Page One). The underlying primary sources — diataxis.fr, developers.google.com/style, learn.microsoft.com/style-guide, writethedocs.org, keepachangelog.com, adr.github.io/madr, developer.atlassian.com — are authoritative and should be the canonical references in your internal skill.
+- **The current-site inventory reflects llms.txt at time of research** (44 pages \+ OpenAPI spec). The file is flat, so per-section navigation grouping was inferred from URL paths, not read directly from docs.json; verify against the live sidebar before acting.
+- **Atlassian requirements are evolving** (e.g., a Connect support sunset after December 2026 was referenced by a third-party source, not verified against a primary Atlassian page here). Confirm platform-specific deadlines against developer.atlassian.com before making migration-related documentation commitments.
