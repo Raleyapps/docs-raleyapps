@@ -270,5 +270,8 @@
       "linkedin": "https://www.linkedin.com/company/110341503",
       "youtube": "https://www.youtube.com/channel/UCvwgpYByQ9SNNf7OWdQWgmg"
     }
+  },
+  "icons": {
+    "library": "fontawesome"
   }
 }
