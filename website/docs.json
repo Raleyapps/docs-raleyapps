@@ -18,12 +18,11 @@
     "socials": {}
   },
   "navigation": {
-    "groups": [
+    "pages": [
       {
         "group": "Welcome",
         "pages": [
-          "introduction",
-          "changelog"
+          "introduction"
         ]
       },
       {
@@ -205,10 +204,21 @@
         "group": "Security",
         "pages": [
           "policies/service-level-agreement",
-          "policies/service-level-agreement-2",
           "policies/data-security-and-privacy"
         ]
-      }
+      },
+      {
+        "group": "Chanelog",
+        "pages": [
+          "untitled-page",
+          "untitled-page-2",
+          "untitled-page-3",
+          "untitled-page-4",
+          "untitled-page-5",
+          "untitled-page-6"
+        ]
+      },
+      "policies/service-level-agreement-2"
     ]
   },
   "redirects": [
