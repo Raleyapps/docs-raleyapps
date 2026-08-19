@@ -1,0 +1,62 @@
+---
+title: "How Raley apps run on Atlassian: Connect, Forge, and where your data goes"
+description: "What Atlassian Connect and Atlassian Forge are, how they differ, and what each platform means for where your Jira data is processed."
+last_reviewed: "2026-08-19"
+sidebarTitle: "Connect & Forge"
+keywords: ["atlassian connect vs forge", "forge app security", "connect app jwt", "where marketplace app data goes", " atlassian app hosting", "jira app data processing"]
+mode: "wide"
+---
+
+Every Raley app runs on one of Atlassian's 2 app platforms: Connect or Forge. The platform decides where the app's code runs, who maintains that infrastructure, and where your Jira data is processed. This page explains the difference so you can answer a security review's first question before it is asked.
+
+This is background reading. To install an app, see [Installation](/installation). For hosting, encryption, and GDPR details, see [Data security and privacy](/policies/data-security-and-privacy).
+
+## Two platforms, one Marketplace
+
+Apps on both platforms ship through the same Atlassian Marketplace and install the same way. The difference is architectural.
+
+|  | Atlassian Connect | Atlassian Forge |
+| --- | --- | --- |
+| Where the code runs | On the vendor's own infrastructure | On Atlassian's infrastructure |
+| Who runs and patches the servers | The app vendor | Atlassian |
+| How it talks to your site | Signed REST calls over an encrypted connection | Inside Atlassian's cloud, behind platform controls |
+| What that means for data | Data the app processes reaches the vendor's servers | Data stays in Atlassian's cloud unless the app is permitted to send it out |
+
+### Connect: the app is a web service
+
+A Connect app is a standalone web application. The vendor hosts and runs it, and it exchanges data with your site through Atlassian's REST APIs. At install time, your site and the app exchange a shared secret. Every call between the two is then signed with a JSON Web Token (JWT) built from that secret and sent over an encrypted HTTPS connection, so each side can verify who is calling and that nothing changed in transit. Atlassian documents this model in [Security for Connect apps](https://developer.atlassian.com/cloud/jira/platform/security-for-connect-apps/).
+
+The trade-off: the vendor gets freedom to build on any language and stack, and in exchange the vendor, not Atlassian, owns the hosting and its security posture.
+
+### Forge: the app runs inside Atlassian
+
+A [Forge](https://developer.atlassian.com/platform/forge/) app is hosted entirely on Atlassian's infrastructure. Its code runs as functions inside Atlassian's cloud, in a sandbox that enforces tenant isolation and restricts data egress by design. The vendor still writes and maintains the app; Atlassian runs it.
+
+The trade-off runs the other way: less infrastructure freedom for the vendor, stronger platform guarantees for you.
+
+### Where the platforms are heading
+
+Atlassian has spent years unifying the two platforms, moving Connect capabilities onto Forge step by step. Connect apps keep their Marketplace listings and customer installs through that transition. For the current state of the migration, Atlassian's [cloud app hosting guide](https://developer.atlassian.com/developer-guide/cloud-app-hosting/) is the source of truth.
+
+## Which platform each Raley app uses
+
+We list an app here once its platform is confirmed:
+
+| App | Platform |
+| --- | --- |
+| Raley Procurement - Intake & Approval Orchestration for JSM | Atlassian Forge |
+| Raley Email Notifications for Jira & JSM | Atlassian Connect |
+
+For any app, including the ones not listed yet, the authoritative record is the **Privacy & Security** tab of its Atlassian Marketplace listing. We add rows here as platforms are confirmed rather than guessing.
+
+## What this page does not answer
+
+- What data each app stores, where, and for how long: see [Data security and privacy](/policies/data-security-and-privacy).
+- How to install or trial an app: see [Installation](/installation) and [Licensing and trials](/licensing-and-trials).
+- What the Jira and JSM building blocks themselves are: see [Jira and JSM primitives Raley apps build on](/concepts/jira-jsm-primitives-we-use).
+
+Anything else, ask us through [Support](/support).
+
+---
+
+_Last updated: August 19, 2026_
